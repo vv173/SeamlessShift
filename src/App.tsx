@@ -1,7 +1,7 @@
 import React from 'react';
 import { ConfigProvider } from 'antd';
 import { HelmetProvider } from 'react-helmet-async';
-import deDe from 'antd/lib/locale/de_DE';
+import plPl from 'antd/lib/locale/pl_PL';
 import enUS from 'antd/lib/locale/en_US';
 import GlobalStyle from './styles/GlobalStyle';
 import 'typeface-montserrat';
@@ -29,7 +29,7 @@ const App: React.FC = () => {
       <meta name="theme-color" content={themeObject[theme].primary} />
       <GlobalStyle />
       <HelmetProvider>
-        <ConfigProvider locale={language === 'en' ? enUS : deDe}>
+        <ConfigProvider locale={language === 'en' ? enUS : plPl}>
           <AppRouter />
         </ConfigProvider>
       </HelmetProvider>

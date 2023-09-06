@@ -8,7 +8,7 @@ const LoginPage: React.FC = () => {
 
   return (
     <>
-      <PageTitle>{t('common.login')}</PageTitle>
+      <PageTitle>{t('common.loginSite')}</PageTitle>
       <LoginForm />
     </>
   );
