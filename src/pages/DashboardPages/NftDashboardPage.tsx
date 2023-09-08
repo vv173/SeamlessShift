@@ -61,9 +61,11 @@ const MedicalDashboardPage: React.FC = () => {
         <TrendingCreators />
       </BaseCol>
 
+    {/*
       <BaseCol span={24}>
         <RecentlyAddedNft />
       </BaseCol>
+  */}
 
       <BaseCol span={24}>
         <TrendingCollections />

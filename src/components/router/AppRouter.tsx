@@ -4,11 +4,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // no lazy loading for auth pages to avoid flickering
 const AuthLayout = React.lazy(() => import('@app/components/layouts/AuthLayout/AuthLayout'));
 import LoginPage from '@app/pages/LoginPage';
-import SignUpPage from '@app/pages/SignUpPage';
 import ForgotPasswordPage from '@app/pages/ForgotPasswordPage';
 import SecurityCodePage from '@app/pages/SecurityCodePage';
 import NewPasswordPage from '@app/pages/NewPasswordPage';
-import LockPage from '@app/pages/LockPage';
 
 import MainLayout from '@app/components/layouts/main/MainLayout/MainLayout';
 import ProfileLayout from '@app/components/profile/ProfileLayout';
@@ -54,10 +52,6 @@ const DropdownsPage = React.lazy(() => import('@app/pages/uiComponentsPages/Drop
 const BreadcrumbsPage = React.lazy(() => import('@app/pages/uiComponentsPages/navigation/BreadcrumbsPage'));
 const TabsPage = React.lazy(() => import('@app/pages/uiComponentsPages/navigation/TabsPage'));
 const NotificationsUIPage = React.lazy(() => import('@app/pages/uiComponentsPages/feedback/NotificationsPage'));
-const GoogleMaps = React.lazy(() => import('@app/pages/maps/GoogleMapsPage/GoogleMapsPage'));
-const LeafletMaps = React.lazy(() => import('@app/pages/maps/LeafletMapsPage/LeafletMapsPage'));
-const ReactSimpleMaps = React.lazy(() => import('@app/pages/maps/ReactSimpleMapsPage/ReactSimpleMapsPage'));
-const PigeonsMaps = React.lazy(() => import('@app/pages/maps/PigeonsMapsPage/PigeonsMapsPage'));
 const Logout = React.lazy(() => import('./Logout'));
 
 export const NFT_DASHBOARD_PATH = '/';
@@ -100,12 +94,6 @@ const Skeletons = withLoading(SkeletonsPage);
 const DataTables = withLoading(DataTablesPage);
 const Charts = withLoading(ChartsPage);
 
-// Maps
-const Google = withLoading(GoogleMaps);
-const Leaflet = withLoading(LeafletMaps);
-const ReactSimple = withLoading(ReactSimpleMaps);
-const Pigeons = withLoading(PigeonsMaps);
-
 const ServerError = withLoading(ServerErrorPage);
 const Error404 = withLoading(Error404Page);
 
@@ -139,12 +127,6 @@ export const AppRouter: React.FC = () => {
           </Route>
           <Route path="data-tables" element={<DataTables />} />
           <Route path="charts" element={<Charts />} />
-          <Route path="maps">
-            <Route path="google-maps" element={<Google />} />
-            <Route path="leaflet-maps" element={<Leaflet />} />
-            <Route path="react-simple-maps" element={<ReactSimple />} />
-            <Route path="pigeon-maps" element={<Pigeons />} />
-          </Route>
           <Route path="server-error" element={<ServerError />} />
           <Route path="404" element={<Error404 />} />
           <Route path="profile" element={<ProfileLayout />}>
@@ -185,15 +167,6 @@ export const AppRouter: React.FC = () => {
         </Route>
         <Route path="/auth" element={<AuthLayoutFallback />}>
           <Route path="login" element={<LoginPage />} />
-          <Route path="sign-up" element={<SignUpPage />} />
-          <Route
-            path="lock"
-            element={
-              <RequireAuth>
-                <LockPage />
-              </RequireAuth>
-            }
-          />
           <Route path="forgot-password" element={<ForgotPasswordPage />} />
           <Route path="security-code" element={<SecurityCodePage />} />
           <Route path="new-password" element={<NewPasswordPage />} />

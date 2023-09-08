@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  CompassOutlined,
+  //CompassOutlined,
   DashboardOutlined,
   FormOutlined,
   HomeOutlined,
@@ -57,16 +57,6 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         url: '/auth/login',
       },
       {
-        title: 'common.signUp',
-        key: 'singUp',
-        url: '/auth/sign-up',
-      },
-      {
-        title: 'common.lock',
-        key: 'lock',
-        url: '/auth/lock',
-      },
-      {
         title: 'common.forgotPass',
         key: 'forgotPass',
         url: '/auth/forgot-password',
@@ -106,33 +96,6 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
     key: 'charts',
     url: '/charts',
     icon: <LineChartOutlined />,
-  },
-  {
-    title: 'common.maps',
-    key: 'maps',
-    icon: <CompassOutlined />,
-    children: [
-      {
-        title: 'common.googleMap',
-        key: 'google-maps',
-        url: '/maps/google-maps',
-      },
-      {
-        title: 'common.leafletMap',
-        key: 'leaflet-maps',
-        url: '/maps/leaflet-maps',
-      },
-      {
-        title: 'common.reactSimpleMaps',
-        key: 'react-simple-maps',
-        url: '/maps/react-simple-maps',
-      },
-      {
-        title: 'common.pigeonMaps',
-        key: 'pigeon-maps',
-        url: '/maps/pigeon-maps',
-      },
-    ],
   },
   {
     title: 'common.pages',
