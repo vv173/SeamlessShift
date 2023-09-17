@@ -29,6 +29,10 @@ yarn-error.log*
 
 # IDE files
 .idea
+.vscode
 
 # generated files
 /public/themes
+
+# flask
+.flaskenv
