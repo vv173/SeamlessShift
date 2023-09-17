@@ -10,6 +10,8 @@ class UserModel(db.Model):
     surname = db.Column(db.String(45), unique=False, nullable=False)
     email = db.Column(db.String(90), unique=True, nullable=False)
     phone = db.Column(db.String(15), unique=True, nullable=False)
+    deleted = db.Column(db.Boolean, unique=False, nullable=False)
+    password_change_required = db.Column(db.Boolean, unique=False, nullable=False)
 
     # Foreign keys
     facility_id = db.Column(db.Integer, db.ForeignKey(
