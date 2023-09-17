@@ -15,11 +15,16 @@ class UserList(MethodView):
 
     @blp.arguments(UserSchema)
     def post(self, user_data):
-        for user in users:
-            if user_data["name"] == user["name"]:
+        for user in users.values():
+            if user_data["phone"] == user["phone"]:
                 abort(
                     400,
-                    message="Bad request. User already exists."
+                    message="Bad request. The phone number is already in use."
+                )
+            elif user_data["email"] == user["email"]:
+                abort(
+                    400,
+                    message="Bad request. The e-mail address is already in use."
                 )
         user_id = uuid.uuid4().hex
         new_user = {**user_data, "id": user_id}
