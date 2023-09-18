@@ -40,6 +40,27 @@ class User(MethodView):
         except KeyError:
             abort(404, message="User not found")
 
+    @blp.arguments(UserUpdateSchema)
+    def put(self, user_data, user_id):
+        try:
+            user = users[user_id]
+            if 'phone' or 'email' in user_data:
+                for user in users.values():
+                    if user_data["phone"] == user["phone"]:
+                        abort(
+                            400,
+                            message="Bad request. The phone number is already in use."
+                        )
+                    elif user_data["email"] == user["email"]:
+                        abort(
+                            400,
+                            message="Bad request. The e-mail address is already in use."
+                        )
+            user |= user_data
+            return user
+        except KeyError:
+            abort(404, message="User not found")
+
     def delete(self, user_id):
         try:
             del users[user_id]
