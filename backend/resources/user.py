@@ -10,10 +10,12 @@ blp = Blueprint("Users", __name__, description="Operations on users")
 
 @blp.route("/user")
 class UserList(MethodView):
+    @blp.response(200, UserSchema(many=True))
     def get(self):
-        return {"users": list(users.values())}
+        return users.values()
 
     @blp.arguments(UserSchema)
+    @blp.response(201, UserSchema)
     def post(self, user_data):
         for user in users.values():
             if user_data["phone"] == user["phone"]:
@@ -34,13 +36,15 @@ class UserList(MethodView):
 
 @blp.route("/user/<string:user_id>")
 class User(MethodView):
+    @blp.response(200, UserSchema)
     def get(self, user_id):
         try:
-            return users[user_id], 201
+            return users[user_id]
         except KeyError:
             abort(404, message="User not found")
 
     @blp.arguments(UserUpdateSchema)
+    @blp.response(200, UserSchema)
     def put(self, user_data, user_id):
         try:
             user = users[user_id]
