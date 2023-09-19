@@ -8,4 +8,4 @@ class RoleModel(db.Model):
     name = db.Column(db.String(45), unique=True, nullable=False)
 
     # Relationships
-    users = db.relationship("UserModel", back_populates="role", lazy=dynamic)
+    users = db.relationship("UserModel", back_populates="role", lazy='dynamic')

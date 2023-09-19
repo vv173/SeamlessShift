@@ -4,19 +4,21 @@ from db import db
 class UserModel(db.Model):
     __tablename__ = "user"
 
-    id = db.Column(db.Integer, primary_key=True)
-    password = db.Column(db.String(128), unique=False, nullable=False)
-    name = db.Column(db.String(45), unique=False, nullable=False)
-    surname = db.Column(db.String(45), unique=False, nullable=False)
-    email = db.Column(db.String(90), unique=True, nullable=False)
-    phone = db.Column(db.String(15), unique=True, nullable=False)
-    deleted = db.Column(db.Boolean, unique=False, nullable=False)
-    password_change_required = db.Column(db.Boolean, unique=False, nullable=False)
+    id = db.Column('id', db.Integer, primary_key=True)
+    password = db.Column('password', db.String(128),
+                         unique=False, nullable=False)
+    name = db.Column('name', db.String(45), unique=False, nullable=False)
+    surname = db.Column('surname', db.String(45), unique=False, nullable=False)
+    email = db.Column('email', db.String(90), unique=True, nullable=False)
+    phone = db.Column('phone', db.String(15), unique=True, nullable=False)
+    deleted = db.Column('deleted', db.Boolean, unique=False, nullable=False)
+    password_change_required = db.Column(
+        'password_change_required', db.Boolean, unique=False, nullable=False)
 
     # Foreign keys
-    facility_id = db.Column(db.Integer, db.ForeignKey(
+    facility_id = db.Column('facility_id', db.Integer, db.ForeignKey(
         "facility.id"), unique=False, primary_key=True)
-    role_id = db.Column(db.Integer, db.ForeignKey(
+    role_id = db.Column('role_id', db.Integer, db.ForeignKey(
         "role.id"), unique=False, primary_key=True)
 
     # Relationships

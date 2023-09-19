@@ -2,7 +2,6 @@ import uuid
 from flask import Flask, request
 from flask.views import MethodView
 from flask_smorest import Blueprint, abort
-from db import users
 from schemas import UserSchema, UserUpdateSchema
 
 blp = Blueprint("Users", __name__, description="Operations on users")

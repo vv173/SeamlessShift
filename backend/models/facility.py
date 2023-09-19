@@ -9,4 +9,4 @@ class FacilityModel(db.Model):
 
     # Relationships
     users = db.relationship(
-        "UserModel", back_populates="facility", lazy=dynamic)
+        "UserModel", back_populates="facility", lazy='dynamic')
