@@ -77,7 +77,7 @@ INSERT INTO shift_db.facility (id, name) VALUES (1, 'Facility A'), (2, 'Facility
 INSERT INTO shift_db.user (id, password, name, surname, email, phone, facility_id, role_id, deleted, password_change_required)
 VALUES
   (1, 'password', 'admin', 'admin', 'admin@pollub.pl', '555-555-5551', 1, 2, 0, 1), -- Admin user
-  (2, 'password', 'Jan', 'Kowalski', 'jane.kowalski@pollub.pl', '555-555-5552', 2, 1, 0, 1), -- Regular user
+  (2, 'password', 'Jan', 'Kowalski', 'jan.kowalski@pollub.pl', '555-555-5552', 2, 1, 0, 1), -- Regular user
   (3, 'password', 'student', 'student', 'student@pollub.pl', '555-555-5553', 3, 1, 0, 1); -- Regular user
 
 

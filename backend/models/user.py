@@ -17,9 +17,9 @@ class UserModel(db.Model):
 
     # Foreign keys
     facility_id = db.Column('facility_id', db.Integer, db.ForeignKey(
-        "facility.id"), unique=False, primary_key=True)
+        "facility.id"), unique=False, nullable=False)
     role_id = db.Column('role_id', db.Integer, db.ForeignKey(
-        "role.id"), unique=False, primary_key=True)
+        "role.id"), unique=False, nullable=False)
 
     # Relationships
     facility = db.relationship("FacilityModel", back_populates="users")
