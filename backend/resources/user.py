@@ -21,6 +21,7 @@ class UserLogin(MethodView):
             UserModel.email == user_data["email"]
         ).first()
 
+        # if user and pbkdf2_sha256.verify(user_data["password"], user.password):
         if user and user.password == user_data["password"]:
             access_token = create_access_token(identity=user.id)
             return {"access_token": access_token}
@@ -37,13 +38,15 @@ class UserList(MethodView):
     @blp.arguments(UserSchema)
     @blp.response(201, UserSchema)
     def post(self, user_data):
+        if UserModel.query.filter(UserModel.email == user_data["email"]).first():
+            abort(409, message="A user with that email address already exists.")
+        elif UserModel.query.filter(UserModel.phone == user_data["phone"]).first():
+            abort(409, message="A user with that phone number already exists.")
+        # user_data["password"] = pbkdf2_sha256.hash(user_data["password"])
         user = UserModel(**user_data)
         try:
             db.session.add(user)
             db.session.commit()
-        except IntegrityError:
-            abort(
-                400, message="The phone number or email address you provided already exists.")
         except SQLAlchemyError:
             abort(500, message="An error occurred while inserting the user")
         return user, 201
@@ -60,6 +63,7 @@ class User(MethodView):
     @blp.response(200, UserSchema)
     def put(self, user_data, user_id):
         user = UserModel.query.get_or_404(user_id)
+        # user_data["password"] = pbkdf2_sha256.hash(user_data["password"])
         for key, value in user_data.items():
             setattr(user, key, value)
         try:
