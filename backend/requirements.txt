@@ -1,7 +1,9 @@
 flask
 flask-smorest
 flask-sqlalchemy
+flask-jwt-extended
 python-dotenv
+passlib
 sqlalchemy
 marshmallow
 pymysql

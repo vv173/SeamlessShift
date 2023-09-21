@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_smorest import Api
+from flask_jwt_extended import JWTManager 
 
 from db import db
 import models
@@ -21,9 +22,11 @@ def create_app():
     app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:password@172.17.0.2/shift_db?charset=utf8mb4"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SQLALCHEMY_ECHO'] = True
+    app.config["JWT_SECRET_KEY"] = "secret"
 
     db.init_app(app)
     api = Api(app)
+    jwt = JWTManager(app)
 
     # move db creation to the __init__.py
     with app.app_context():

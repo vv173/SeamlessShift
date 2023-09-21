@@ -2,13 +2,30 @@ import uuid
 from flask import Flask, request
 from flask.views import MethodView
 from flask_smorest import Blueprint, abort
+from flask_jwt_extended import create_access_token
 from sqlalchemy.exc import SQLAlchemyError, IntegrityError
+from passlib.hash import pbkdf2_sha256
 
 from db import db
 from models import UserModel
-from schemas import UserSchema, UserUpdateSchema
+from schemas import PlainUserSchema, UserSchema, UserUpdateSchema
 
 blp = Blueprint("Users", __name__, description="Operations on users")
+
+
+@blp.route("/login")
+class UserLogin(MethodView):
+    @blp.arguments(PlainUserSchema)
+    def post(self, user_data):
+        user = UserModel.query.filter(
+            UserModel.email == user_data["email"]
+        ).first()
+
+        if user and user.password == user_data["password"]:
+            access_token = create_access_token(identity=user.id)
+            return {"access_token": access_token}
+
+        abort(401, message="Invalid credentials")
 
 
 @blp.route("/user")
@@ -32,7 +49,7 @@ class UserList(MethodView):
         return user, 201
 
 # Bad data exception?
-@blp.route("/user/<string:user_id>")
+@blp.route("/user/<int:user_id>")
 class User(MethodView):
     @blp.response(200, UserSchema)
     def get(self, user_id):

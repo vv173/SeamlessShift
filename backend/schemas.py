@@ -13,16 +13,16 @@ class PlainFacilitySchema(Schema):
 
 class PlainUserSchema(Schema):
     id = fields.Int(dump_only=True)
-    password = fields.Str(required=True)
-    name = fields.Str(required=True)
-    surname = fields.Str(required=True)
     email = fields.Str(required=True)
-    phone = fields.Str(required=True)
-    deleted = fields.Bool(required=True)
-    password_change_required = fields.Bool(required=True)
+    password = fields.Str(required=True, load_only=True)
 
 
 class UserSchema(PlainUserSchema):
+    name = fields.Str(required=True)
+    surname = fields.Str(required=True)
+    phone = fields.Str(required=True)
+    deleted = fields.Bool(required=True)
+    password_change_required = fields.Bool(required=True)
     facility_id = fields.Int(required=True)
     facility = fields.Nested(PlainFacilitySchema(), dump_only=True)
     role_id = fields.Int(required=True)
