@@ -233,7 +233,8 @@
     "verifyEmailPage": "Verify email page",
     "warning": "Warning",
     "zipcode": "Zipcode",
-    "delete": "Delete"
+    "delete": "Delete",
+    "deleteSelected": "Delete selected"
   },
   "medical-dashboard": {
     "activity": {
@@ -820,7 +821,7 @@
     "basicTable": "Basic Table",
     "cancelInfo": "Sure to cancel?",
     "delete": "Delete",
-    "editableTable": "Editable Table",
+    "editableTable": "User Management",
     "invite": "Invite",
     "inviteMessage": "{{name}} invited successfully",
     "treeTable": "Tree Table"

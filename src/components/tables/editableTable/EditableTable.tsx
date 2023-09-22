@@ -8,10 +8,12 @@ import { useMounted } from '@app/hooks/useMounted';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
 import { BasePopconfirm } from '@app/components/common/BasePopconfirm/BasePopconfirm';
+import { Key, DefaultRecordType } from 'rc-table/lib/interface';
+
 
 const initialPagination: Pagination = {
   current: 1,
-  pageSize: 4,
+  pageSize: 6,
 };
 
 export const EditableTable: React.FC = () => {
@@ -24,6 +26,7 @@ export const EditableTable: React.FC = () => {
   const [editingKey, setEditingKey] = useState(0);
   const { t } = useTranslation();
   const { isMounted } = useMounted();
+  const [selectedRowKeys, setSelectedRowKeys] = useState<Key[]>([]);
 
   const fetch = useCallback(
     (pagination: Pagination) => {
@@ -57,6 +60,25 @@ export const EditableTable: React.FC = () => {
     setEditingKey(0);
   };
 
+  const rowSelection = {
+    selectedRowKeys,
+    onChange: (selectedKeys: Key[], selectedRows: DefaultRecordType[]) => {
+      setSelectedRowKeys(selectedKeys);
+    },
+    onSelect: (record: DefaultRecordType, selected: boolean, selectedRows: DefaultRecordType[]) => {
+      console.log(record, selected, selectedRows);
+    },
+    onSelectAll: (selected: boolean, selectedRows: DefaultRecordType[]) => {
+      console.log(selected, selectedRows);
+    },
+  };
+
+  const handleDeleteSelectedRows = () => {
+    const newData = tableData.data.filter((item) => !selectedRowKeys.includes(item.key));
+    setTableData({ ...tableData, data: newData });
+    setSelectedRowKeys([]); // Wyczyść zaznaczone klucze po usunięciu wierszy
+  };
+
   const save = async (key: React.Key) => {
     try {
       const row = (await form.validateFields()) as BasicTableRow;
@@ -87,19 +109,27 @@ export const EditableTable: React.FC = () => {
     {
       title: t('common.name'),
       dataIndex: 'name',
-      width: '25%',
+      width: '20%',
       editable: true,
     },
     {
-      title: t('common.age'),
-      dataIndex: 'age',
-      width: '15%',
+      //title: t('common.age'),
+      title: 'e-mail',
+      dataIndex: 'e-mail',
+      width: '20%',
       editable: true,
     },
     {
-      title: t('common.address'),
-      dataIndex: 'address',
-      width: '30%',
+      //title: t('common.address'),
+      title: 'phone',
+      dataIndex: 'phone',
+      width: '20%',
+      editable: true,
+    },
+    {
+      title: 'role',
+      dataIndex: 'role',
+      width: '20%',
       editable: true,
     },
     {
@@ -150,7 +180,7 @@ export const EditableTable: React.FC = () => {
       }),
     };
   });
-
+  
   return (
     <BaseForm form={form} component={false}>
       <BaseTable
@@ -163,6 +193,7 @@ export const EditableTable: React.FC = () => {
         dataSource={tableData.data}
         columns={mergedColumns}
         rowClassName="editable-row"
+        rowSelection={rowSelection}
         pagination={{
           ...tableData.pagination,
           onChange: cancel,
@@ -171,6 +202,9 @@ export const EditableTable: React.FC = () => {
         loading={tableData.loading}
         scroll={{ x: 800 }}
       />
+      <BaseButton type="default" danger onClick={handleDeleteSelectedRows}>
+      {t('common.deleteSelected')}
+      </BaseButton>
     </BaseForm>
   );
 };
