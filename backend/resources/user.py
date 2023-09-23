@@ -21,8 +21,7 @@ class UserLogin(MethodView):
             UserModel.email == user_data["email"]
         ).first()
 
-        # if user and pbkdf2_sha256.verify(user_data["password"], user.password):
-        if user and user.password == user_data["password"]:
+        if user and pbkdf2_sha256.verify(user_data["password"], user.password):
             access_token = create_access_token(identity=user.id)
             return {"access_token": access_token}
 
@@ -42,7 +41,7 @@ class UserList(MethodView):
             abort(409, message="A user with that email address already exists.")
         elif UserModel.query.filter(UserModel.phone == user_data["phone"]).first():
             abort(409, message="A user with that phone number already exists.")
-        # user_data["password"] = pbkdf2_sha256.hash(user_data["password"])
+        user_data["password"] = pbkdf2_sha256.hash(user_data["password"])
         user = UserModel(**user_data)
         try:
             db.session.add(user)
@@ -63,7 +62,9 @@ class User(MethodView):
     @blp.response(200, UserSchema)
     def put(self, user_data, user_id):
         user = UserModel.query.get_or_404(user_id)
-        # user_data["password"] = pbkdf2_sha256.hash(user_data["password"])
+        if "password" in user_data:
+            user_data["password"] = pbkdf2_sha256.hash(user_data["password"])
+        # that loop should be replaced with something better
         for key, value in user_data.items():
             setattr(user, key, value)
         try:
