@@ -18,8 +18,6 @@ import MedicalDashboardPage from '@app/pages/DashboardPages/MedicalDashboardPage
 const NewsFeedPage = React.lazy(() => import('@app/pages/NewsFeedPage'));
 const DataTablesPage = React.lazy(() => import('@app/pages/DataTablesPage'));
 const ChartsPage = React.lazy(() => import('@app/pages/ChartsPage'));
-const ServerErrorPage = React.lazy(() => import('@app/pages/ServerErrorPage'));
-const Error404Page = React.lazy(() => import('@app/pages/Error404Page'));
 const AdvancedFormsPage = React.lazy(() => import('@app/pages/AdvancedFormsPage'));
 const PersonalInfoPage = React.lazy(() => import('@app/pages/PersonalInfoPage'));
 const SecuritySettingsPage = React.lazy(() => import('@app/pages/SecuritySettingsPage'));
@@ -94,9 +92,6 @@ const Skeletons = withLoading(SkeletonsPage);
 const DataTables = withLoading(DataTablesPage);
 const Charts = withLoading(ChartsPage);
 
-const ServerError = withLoading(ServerErrorPage);
-const Error404 = withLoading(Error404Page);
-
 // Profile
 const PersonalInfo = withLoading(PersonalInfoPage);
 const SecuritySettings = withLoading(SecuritySettingsPage);
@@ -127,8 +122,6 @@ export const AppRouter: React.FC = () => {
           </Route>
           <Route path="data-tables" element={<DataTables />} />
           <Route path="charts" element={<Charts />} />
-          <Route path="server-error" element={<ServerError />} />
-          <Route path="404" element={<Error404 />} />
           <Route path="profile" element={<ProfileLayout />}>
             <Route path="personal-info" element={<PersonalInfo />} />
             <Route path="security-settings" element={<SecuritySettings />} />

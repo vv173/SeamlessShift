@@ -107,16 +107,6 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'profile',
         url: '/profile',
       },
-      {
-        title: 'common.serverError',
-        key: 'serverError',
-        url: '/server-error',
-      },
-      {
-        title: 'common.clientError',
-        key: '404Error',
-        url: '/404',
-      },
     ],
   },
   {

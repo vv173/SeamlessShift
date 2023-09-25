@@ -1,7 +1,6 @@
 import React from 'react';
 import { NotificationsDropdown } from '../components/notificationsDropdown/NotificationsDropdown';
 import { ProfileDropdown } from '../components/profileDropdown/ProfileDropdown/ProfileDropdown';
-import { HeaderSearch } from '../components/HeaderSearch/HeaderSearch';
 import { SettingsDropdown } from '../components/settingsDropdown/SettingsDropdown';
 import * as S from '../Header.styles';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
@@ -23,10 +22,6 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({ toggleSider, isSider
         <BaseRow align="middle">
           <BaseCol>
             <NotificationsDropdown />
-          </BaseCol>
-
-          <BaseCol>
-            <HeaderSearch />
           </BaseCol>
 
           <BaseCol>
