@@ -62,7 +62,7 @@ export const EditableTable: React.FC = () => {
 
   const rowSelection = {
     selectedRowKeys,
-    onChange: (selectedKeys: Key[], selectedRows: DefaultRecordType[]) => {
+    onChange: (selectedKeys: Key[]) => {
       setSelectedRowKeys(selectedKeys);
     },
     onSelect: (record: DefaultRecordType, selected: boolean, selectedRows: DefaultRecordType[]) => {
