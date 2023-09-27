@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
-import { ScreeningsCard } from '@app/components/medical-dashboard/screeningsCard/ScreeningsCard/ScreeningsCard';
 import { ActivityCard } from '@app/components/medical-dashboard/activityCard/ActivityCard';
 import { TreatmentCard } from '@app/components/medical-dashboard/treatmentCard/TreatmentCard';
 import { HealthCard } from '@app/components/medical-dashboard/HealthCard/HealthCard';
@@ -25,10 +24,7 @@ const MedicalDashboardPage: React.FC = () => {
       <S.LeftSideCol xl={16} xxl={17}>
         <BaseRow gutter={[30, 30]}>
 
-          <BaseCol id="latest-screenings" span={24}>
-            <ScreeningsCard />
-          </BaseCol>
-
+          
           <BaseCol id="treatment-plan" xl={24}>
             <TreatmentCard />
           </BaseCol>
@@ -65,9 +61,7 @@ const MedicalDashboardPage: React.FC = () => {
     <BaseRow gutter={[20, 20]}>
       <StatisticsCards />
 
-      <BaseCol id="latest-screenings" xs={24} md={12} order={(isTablet && 5) || 0}>
-        <ScreeningsCard />
-      </BaseCol>
+      
 
       <BaseCol id="activity" xs={24} md={12} order={(isTablet && 8) || 0}>
         <ActivityCard />
