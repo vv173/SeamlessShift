@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
+import { RequestForm } from '@app/components/medical-dashboard/addRequest/RequestForm';
 import { ActivityCard } from '@app/components/medical-dashboard/activityCard/ActivityCard';
 import { TreatmentCard } from '@app/components/medical-dashboard/treatmentCard/TreatmentCard';
 import { HealthCard } from '@app/components/medical-dashboard/HealthCard/HealthCard';
@@ -23,8 +24,10 @@ const MedicalDashboardPage: React.FC = () => {
     <BaseRow>
       <S.LeftSideCol xl={16} xxl={17}>
         <BaseRow gutter={[30, 30]}>
+          <BaseCol id="add-request" xl={24}>
+            <RequestForm />
+          </BaseCol>
 
-          
           <BaseCol id="treatment-plan" xl={24}>
             <TreatmentCard />
           </BaseCol>
@@ -40,7 +43,6 @@ const MedicalDashboardPage: React.FC = () => {
           <BaseCol id="favorite-doctors" xl={24}>
             <FavoritesDoctorsCard />
           </BaseCol>
-
         </BaseRow>
         <References />
       </S.LeftSideCol>
@@ -59,9 +61,9 @@ const MedicalDashboardPage: React.FC = () => {
 
   const mobileAndTabletLayout = (
     <BaseRow gutter={[20, 20]}>
-      <StatisticsCards />
-
-      
+      <BaseCol id="add-request" xs={24} md={12} order={(isTablet && 8) || 0}>
+        <RequestForm />
+      </BaseCol>
 
       <BaseCol id="activity" xs={24} md={12} order={(isTablet && 8) || 0}>
         <ActivityCard />
@@ -86,7 +88,6 @@ const MedicalDashboardPage: React.FC = () => {
       <BaseCol id="favorite-doctors" xs={24} md={24} order={(isTablet && 13) || 0}>
         <FavoritesDoctorsCard />
       </BaseCol>
-
     </BaseRow>
   );
 
