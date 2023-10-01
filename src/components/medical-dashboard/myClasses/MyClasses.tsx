@@ -5,14 +5,12 @@ import { ColumnsType } from 'antd/es/table';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { useTranslation } from 'react-i18next';
 import { notificationController } from 'controllers/notificationController';
-import { Status } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentHistory/Status/Status';
 import { useMounted } from '@app/hooks/useMounted';
-import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
-import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
 import { DashboardCard } from '../DashboardCard/DashboardCard';
 import { DayjsDatePicker } from '@app/components/common/pickers/DayjsDatePicker';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
+import { Dayjs } from 'dayjs';
 
 const initialPagination: Pagination = {
   current: 1,
@@ -20,11 +18,13 @@ const initialPagination: Pagination = {
 };
 
 export const MyClasses: React.FC = () => {
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [tableData, setTableData] = useState<{ data: BasicTableRow[]; pagination: Pagination; loading: boolean }>({
     data: [],
     pagination: initialPagination,
     loading: false,
   });
+  
   const { t } = useTranslation();
   const { isMounted } = useMounted();
 
@@ -41,8 +41,10 @@ export const MyClasses: React.FC = () => {
   );
 
   useEffect(() => {
-    fetch(initialPagination);
-  }, [fetch]);
+    if (selectedDate) {
+      fetch(initialPagination);
+    }
+  }, [fetch, selectedDate]);
 
   const handleTableChange = (pagination: Pagination) => {
     fetch(pagination);
@@ -99,17 +101,18 @@ export const MyClasses: React.FC = () => {
   return (
     <DashboardCard title="My classes">
       <BaseButtonsForm.Item name="date">
-        <DayjsDatePicker />
+      <DayjsDatePicker onChange={(date: Dayjs | null) => setSelectedDate(date ? date.toDate() : null)} />
       </BaseButtonsForm.Item>
-      <BaseTable
-        columns={columns}
-        dataSource={tableData.data}
-        //pagination={tableData.pagination}
-        loading={tableData.loading}
-        onChange={handleTableChange}
-        scroll={{ x: 800 }}
-        bordered
-      />
+      {selectedDate && (
+        <BaseTable
+          columns={columns}
+          dataSource={tableData.data}
+          loading={tableData.loading}
+          onChange={handleTableChange}
+          scroll={{ x: 800 }}
+          bordered
+        />
+      )}
     </DashboardCard>
   );
 };
