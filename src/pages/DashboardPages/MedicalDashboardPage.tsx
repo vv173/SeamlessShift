@@ -1,13 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
+import { MyClasses } from '@app/components/medical-dashboard/myClasses/MyClasses';
 import { RequestForm } from '@app/components/medical-dashboard/addRequest/RequestForm';
 import { ActivityCard } from '@app/components/medical-dashboard/activityCard/ActivityCard';
 import { TreatmentCard } from '@app/components/medical-dashboard/treatmentCard/TreatmentCard';
 import { HealthCard } from '@app/components/medical-dashboard/HealthCard/HealthCard';
 import { FavoritesDoctorsCard } from '@app/components/medical-dashboard/favoriteDoctors/FavoriteDoctorsCard/FavoritesDoctorsCard';
 import { PatientResultsCard } from '@app/components/medical-dashboard/PatientResultsCard/PatientResultsCard';
-import { StatisticsCards } from '@app/components/medical-dashboard/statisticsCards/StatisticsCards';
 import { BloodScreeningCard } from '@app/components/medical-dashboard/bloodScreeningCard/BloodScreeningCard/BloodScreeningCard';
 import { References } from '@app/components/common/References/References';
 import { useResponsive } from '@app/hooks/useResponsive';
@@ -22,8 +22,12 @@ const MedicalDashboardPage: React.FC = () => {
 
   const desktopLayout = (
     <BaseRow>
-      <S.LeftSideCol xl={16} xxl={17}>
         <BaseRow gutter={[30, 30]}>
+        
+        <BaseCol id="my-classes" xl={24}>
+            <MyClasses />
+          </BaseCol>
+          
           <BaseCol id="add-request" xl={24}>
             <RequestForm />
           </BaseCol>
@@ -45,17 +49,6 @@ const MedicalDashboardPage: React.FC = () => {
           </BaseCol>
         </BaseRow>
         <References />
-      </S.LeftSideCol>
-
-      <S.RightSideCol xl={8} xxl={7}>
-        <div id="blood-screening">
-          <BloodScreeningCard />
-        </div>
-        <S.Space />
-        <S.ScrollWrapper id="patient-timeline">
-          <PatientResultsCard />
-        </S.ScrollWrapper>
-      </S.RightSideCol>
     </BaseRow>
   );
 
