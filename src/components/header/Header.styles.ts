@@ -60,10 +60,6 @@ export const MobileBurger = styled(BurgerIcon)`
     `};
 `;
 
-export const SearchColumn = styled(BaseCol)`
-  padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
-`;
-
 interface ProfileColumn {
   $isTwoColumnsLayout: boolean;
 }

@@ -14,8 +14,6 @@ import { CountriesItem } from '@app/components/profile/profileCard/profileFormNa
 import { CitiesItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/CitiesItem/CitiesItem';
 import { ZipcodeItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/ZipcodeItem/ZipcodeItem';
 import { AddressItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/AddressItem/AddressItem';
-import { WebsiteItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/WebsiteItem/WebsiteItem';
-import { SocialLinksItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/SocialLinksItem/SocialLinksItem';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { Dates } from '@app/constants/Dates';
 import { notificationController } from '@app/controllers/notificationController';
@@ -196,19 +194,6 @@ export const PersonalInfo: React.FC = () => {
             <ZipcodeItem />
           </BaseCol>
 
-          <BaseCol span={24}>
-            <BaseButtonsForm.Item>
-              <BaseButtonsForm.Title>{t('profile.nav.personalInfo.otherInfo')}</BaseButtonsForm.Title>
-            </BaseButtonsForm.Item>
-          </BaseCol>
-
-          <BaseCol xs={24} md={12}>
-            <WebsiteItem />
-          </BaseCol>
-
-          <BaseCol span={24}>
-            <SocialLinksItem />
-          </BaseCol>
         </BaseRow>
       </BaseButtonsForm>
     </BaseCard>

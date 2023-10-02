@@ -76,9 +76,9 @@ INSERT INTO shift_db.facility (id, name) VALUES (1, 'Facility A'), (2, 'Facility
 -- Inserting users
 INSERT INTO shift_db.user (id, password, name, surname, email, phone, facility_id, role_id, deleted, password_change_required)
 VALUES
-  (1, 'password', 'admin', 'admin', 'admin@pollub.pl', '555-555-5551', 1, 2, 0, 1), -- Admin user
-  (2, 'password', 'Jan', 'Kowalski', 'jan.kowalski@pollub.pl', '555-555-5552', 2, 1, 0, 1), -- Regular user
-  (3, 'password', 'student', 'student', 'student@pollub.pl', '555-555-5553', 3, 1, 0, 1); -- Regular user
+  (1, '$pbkdf2-sha256$29000$uvdeC.FcSwlBaO09B8CY0w$1jWZ4nV32W9fMdu6bQT4Darq3m3DKMixb7k63xrLmUs', 'admin', 'admin', 'admin@pollub.pl', '555-555-5551', 1, 2, 0, 1), -- Admin user
+  (2, '$pbkdf2-sha256$29000$.V8LwXiPca61tvb.P0fIeQ$BtPjf.0tBC8vypK6cgrYzbQka3sLi918TtdyOHwrTVY', 'Jan', 'Kowalski', 'jan.kowalski@pollub.pl', '555-555-5552', 2, 1, 0, 1), -- Regular user
+  (3, '$pbkdf2-sha256$29000$E6JUKmWstRYCgBCCkPIeow$2rAXUlPWfOGceJb4nXqwAYiq5tOH/.Kw5vF9X0y/uLw', 'student', 'student', 'student@pollub.pl', '555-555-5553', 3, 1, 0, 1); -- Regular user
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

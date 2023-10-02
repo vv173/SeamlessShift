@@ -1,8 +1,7 @@
-import uuid
 from flask import Flask, request
 from flask.views import MethodView
 from flask_smorest import Blueprint, abort
-from flask_jwt_extended import create_access_token
+from flask_jwt_extended import create_access_token, jwt_required
 from sqlalchemy.exc import SQLAlchemyError, IntegrityError
 from passlib.hash import pbkdf2_sha256
 
@@ -21,8 +20,7 @@ class UserLogin(MethodView):
             UserModel.email == user_data["email"]
         ).first()
 
-        # if user and pbkdf2_sha256.verify(user_data["password"], user.password):
-        if user and user.password == user_data["password"]:
+        if user and pbkdf2_sha256.verify(user_data["password"], user.password):
             access_token = create_access_token(identity=user.id)
             return {"access_token": access_token}
 
@@ -31,10 +29,12 @@ class UserLogin(MethodView):
 
 @blp.route("/user")
 class UserList(MethodView):
+    @jwt_required()
     @blp.response(200, UserSchema(many=True))
     def get(self):
         return UserModel.query.all()
 
+    @jwt_required()
     @blp.arguments(UserSchema)
     @blp.response(201, UserSchema)
     def post(self, user_data):
@@ -42,7 +42,7 @@ class UserList(MethodView):
             abort(409, message="A user with that email address already exists.")
         elif UserModel.query.filter(UserModel.phone == user_data["phone"]).first():
             abort(409, message="A user with that phone number already exists.")
-        # user_data["password"] = pbkdf2_sha256.hash(user_data["password"])
+        user_data["password"] = pbkdf2_sha256.hash(user_data["password"])
         user = UserModel(**user_data)
         try:
             db.session.add(user)
@@ -54,16 +54,20 @@ class UserList(MethodView):
 # Bad data exception?
 @blp.route("/user/<int:user_id>")
 class User(MethodView):
+    @jwt_required()
     @blp.response(200, UserSchema)
     def get(self, user_id):
         user = UserModel.query.get_or_404(user_id)
         return user
 
+    @jwt_required()
     @blp.arguments(UserUpdateSchema)
     @blp.response(200, UserSchema)
     def put(self, user_data, user_id):
         user = UserModel.query.get_or_404(user_id)
-        # user_data["password"] = pbkdf2_sha256.hash(user_data["password"])
+        if "password" in user_data:
+            user_data["password"] = pbkdf2_sha256.hash(user_data["password"])
+        # that loop should be replaced with something better
         for key, value in user_data.items():
             setattr(user, key, value)
         try:
@@ -74,6 +78,7 @@ class User(MethodView):
                 400, message="The phone number or email address you provided already exists.")
         return user
 
+    @jwt_required()
     def delete(self, user_id):
         user = UserModel.query.get_or_404(user_id)
         db.session.delete(user)

@@ -36,3 +36,6 @@ yarn-error.log*
 
 # flask
 .flaskenv
+
+# Insomnia
+Insomnia_SeamlessShift.json
