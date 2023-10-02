@@ -1,29 +1,11 @@
 export interface UserModel {
   id: number;
-  firstName: string;
-  lastName: string;
-  imgUrl: string;
-  userName: string;
-  email: {
-    name: string;
-    verified: boolean;
-  };
-  phone: {
-    number: string;
-    verified: boolean;
-  };
-  sex: 'male' | 'female';
-  birthday: string;
-  lang: 'en' | 'de';
-  country: string;
-  city: string;
-  address1: string;
-  address2?: string;
-  zipcode: number;
-  website?: string;
-  socials?: {
-    twitter?: string;
-    facebook?: string;
-    linkedin?: string;
-  };
+  name: string;
+  surname: string;
+  email: string;
+  phone: string;
+  deleted: boolean;
+  password_change_required: boolean;
+  facility_id: number;
+  role_id: number;
 }
