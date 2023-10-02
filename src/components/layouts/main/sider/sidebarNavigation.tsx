@@ -3,7 +3,7 @@ import {
   //CompassOutlined,
   DashboardOutlined,
   FormOutlined,
-  HomeOutlined,
+  //HomeOutlined,
   LayoutOutlined,
   LineChartOutlined,
   TableOutlined,
@@ -33,18 +33,6 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
     key: 'medical-dashboard',
     url: '/medical-dashboard',
     icon: <DashboardOutlined />,
-  },
-  {
-    title: 'common.apps',
-    key: 'apps',
-    icon: <HomeOutlined />,
-    children: [
-      {
-        title: 'common.feed',
-        key: 'feed',
-        url: '/apps/feed',
-      },
-    ],
   },
   {
     title: 'common.authPages',
@@ -92,7 +80,7 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
     icon: <TableOutlined />,
   },
   {
-    title: 'common.charts',
+    title: 'Raports',
     key: 'charts',
     url: '/charts',
     icon: <LineChartOutlined />,

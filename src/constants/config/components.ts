@@ -112,13 +112,6 @@ export const components: Component[] = [
     keywords: ['news', 'data tables'],
   },
   {
-    name: 'Feed',
-    title: 'common.feed',
-    url: `/apps/feed`,
-    categories: ['apps'],
-    keywords: ['feed', 'apps'],
-  },
-  {
     name: 'Log in',
     title: 'common.login',
     url: `/auth/login`,

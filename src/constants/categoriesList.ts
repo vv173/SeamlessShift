@@ -1,4 +1,4 @@
-export type CategoryType = 'apps' | 'forms' | 'charts' | 'auth' | 'data tables' | 'maps';
+export type CategoryType = 'forms' | 'charts' | 'auth' | 'data tables' | 'maps';
 
 interface Category {
   name: CategoryType;
@@ -6,10 +6,6 @@ interface Category {
 }
 
 export const categoriesList: Category[] = [
-  {
-    name: 'apps',
-    title: 'common.apps',
-  },
   {
     name: 'auth',
     title: 'common.auth',
@@ -24,7 +20,7 @@ export const categoriesList: Category[] = [
   },
   {
     name: 'charts',
-    title: 'common.charts',
+    title: 'Raports',
   },
   {
     name: 'maps',
