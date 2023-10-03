@@ -10,11 +10,8 @@ interface ProfileInfoProps {
 export const ProfileInfo: React.FC<ProfileInfoProps> = ({ profileData }) => {
   return profileData ? (
     <S.Wrapper>
-      <S.ImgWrapper>
-        <BaseAvatar shape="circle" src={profileData?.imgUrl} alt="Profile" />
-      </S.ImgWrapper>
-      <S.Title>{`${profileData?.firstName} ${profileData?.lastName}`}</S.Title>
-      <S.Subtitle>{profileData?.userName}</S.Subtitle>
+      <S.Title>{`${profileData?.name} ${profileData?.surname}`}</S.Title>
+      <S.Subtitle>{profileData?.email}</S.Subtitle>
     </S.Wrapper>
   ) : null;
 };
