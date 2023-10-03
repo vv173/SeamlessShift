@@ -23,19 +23,5 @@ export const profileNavData: ProfileNavItem[] = [
     icon: <SecurityScanOutlined />,
     color: 'success',
     href: 'security-settings',
-  },
-  {
-    id: 3,
-    name: 'profile.nav.notifications.title',
-    icon: <BellOutlined />,
-    color: 'error',
-    href: 'notifications',
-  },
-  {
-    id: 4,
-    name: 'profile.nav.payments.title',
-    icon: <DollarOutlined />,
-    color: 'warning',
-    href: 'payments',
-  },
+  }
 ];

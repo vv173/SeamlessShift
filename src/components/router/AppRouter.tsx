@@ -19,8 +19,6 @@ const ChartsPage = React.lazy(() => import('@app/pages/ChartsPage'));
 const AdvancedFormsPage = React.lazy(() => import('@app/pages/AdvancedFormsPage'));
 const PersonalInfoPage = React.lazy(() => import('@app/pages/PersonalInfoPage'));
 const SecuritySettingsPage = React.lazy(() => import('@app/pages/SecuritySettingsPage'));
-const NotificationsPage = React.lazy(() => import('@app/pages/NotificationsPage'));
-const PaymentsPage = React.lazy(() => import('@app/pages/PaymentsPage'));
 const ButtonsPage = React.lazy(() => import('@app/pages/uiComponentsPages/ButtonsPage'));
 const SpinnersPage = React.lazy(() => import('@app/pages/uiComponentsPages/SpinnersPage'));
 const AvatarsPage = React.lazy(() => import('@app/pages/uiComponentsPages/dataDisplay/AvatarsPage'));
@@ -92,8 +90,6 @@ const Charts = withLoading(ChartsPage);
 // Profile
 const PersonalInfo = withLoading(PersonalInfoPage);
 const SecuritySettings = withLoading(SecuritySettingsPage);
-const Notifications = withLoading(NotificationsPage);
-const Payments = withLoading(PaymentsPage);
 
 const AuthLayoutFallback = withLoading(AuthLayout);
 const LogoutFallback = withLoading(Logout);
@@ -119,8 +115,6 @@ export const AppRouter: React.FC = () => {
           <Route path="profile" element={<ProfileLayout />}>
             <Route path="personal-info" element={<PersonalInfo />} />
             <Route path="security-settings" element={<SecuritySettings />} />
-            <Route path="notifications" element={<Notifications />} />
-            <Route path="payments" element={<Payments />} />
           </Route>
           <Route path="ui-components">
             <Route path="button" element={<Buttons />} />

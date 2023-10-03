@@ -1,5 +1,4 @@
 import React from 'react';
-import { Notifications } from './nav/notifications/Notifications/Notifications';
 import { PersonalInfo } from './nav/PersonalInfo/PersonalInfo';
 import { SecuritySettings } from './nav/SecuritySettings/SecuritySettings';
 
@@ -18,11 +17,6 @@ export const ProfileFormNav: React.FC<ProfileFormNavProps> = ({ menu }) => {
 
     case 'security': {
       currentMenu = <SecuritySettings />;
-      break;
-    }
-
-    case 'notifications': {
-      currentMenu = <Notifications />;
       break;
     }
 

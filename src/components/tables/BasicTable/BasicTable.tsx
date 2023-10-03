@@ -6,7 +6,6 @@ import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { useTranslation } from 'react-i18next';
 import { defineColorByPriority } from '@app/utils/utils';
 import { notificationController } from 'controllers/notificationController';
-import { Status } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentHistory/Status/Status';
 import { useMounted } from '@app/hooks/useMounted';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
@@ -118,22 +117,7 @@ export const BasicTable: React.FC = () => {
       title: t('common.address'),
       dataIndex: 'address',
     },
-    {
-      title: t('common.tags'),
-      key: 'tags',
-      dataIndex: 'tags',
-      render: (tags: Tag[]) => (
-        <BaseRow gutter={[10, 10]}>
-          {tags.map((tag: Tag) => {
-            return (
-              <BaseCol key={tag.value}>
-                <Status color={defineColorByPriority(tag.priority)} text={tag.value.toUpperCase()} />
-              </BaseCol>
-            );
-          })}
-        </BaseRow>
-      ),
-    },
+
     {
       title: t('tables.actions'),
       dataIndex: 'actions',
