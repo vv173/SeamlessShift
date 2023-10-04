@@ -10,7 +10,6 @@ import {
   UserOutlined,
   BlockOutlined,
 } from '@ant-design/icons';
-import { ReactComponent as NftIcon } from '@app/assets/icons/nft-icon.svg';
 
 export interface SidebarNavigationItem {
   title: string;

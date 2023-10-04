@@ -1,3 +1,4 @@
+// symulowanie zadan http w testach
 import AxiosMockAdapter from 'axios-mock-adapter';
 import { httpApi } from '@app/api/http.api';
 
