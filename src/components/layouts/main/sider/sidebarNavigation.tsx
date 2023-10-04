@@ -22,14 +22,16 @@ export interface SidebarNavigationItem {
 
 export const sidebarNavigation: SidebarNavigationItem[] = [
   {
-    title: 'common.nft-dashboard',
+    //title: 'common.nft-dashboard',
+    title: 'Dashboard 1',
     key: 'nft-dashboard',
     // TODO use path variable
     url: '/',
-    icon: <NftIcon />,
+    icon: <DashboardOutlined />,
   },
   {
-    title: 'common.medical-dashboard',
+    //title: 'common.medical-dashboard',
+    title: 'Dashboard 2',
     key: 'medical-dashboard',
     url: '/medical-dashboard',
     icon: <DashboardOutlined />,
@@ -74,7 +76,8 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
     ],
   },
   {
-    title: 'common.dataTables',
+    //title: 'common.dataTables',
+    title: 'Management Tables',
     key: 'dataTables',
     url: '/data-tables',
     icon: <TableOutlined />,
@@ -86,16 +89,10 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
     icon: <LineChartOutlined />,
   },
   {
-    title: 'common.pages',
-    key: 'pages',
+    title: 'Profile Page',
+    key: 'profile',
+    url: '/profile',
     icon: <LayoutOutlined />,
-    children: [
-      {
-        title: 'common.profilePage',
-        key: 'profile',
-        url: '/profile',
-      },
-    ],
   },
   {
     title: 'common.ui',

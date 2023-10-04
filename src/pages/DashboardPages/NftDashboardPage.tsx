@@ -3,8 +3,6 @@ import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import { References } from '@app/components/common/References/References';
 import { useResponsive } from '@app/hooks/useResponsive';
 import { TrendingCollections } from '@app/components/nft-dashboard/trending-collections/TrendingCollections';
-//import { Balance } from '@app/components/nft-dashboard/Balance/Balance';
-//import { TotalEarning } from '@app/components/nft-dashboard/totalEarning/TotalEarning';
 import * as S from './DashboardPage.styles';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
