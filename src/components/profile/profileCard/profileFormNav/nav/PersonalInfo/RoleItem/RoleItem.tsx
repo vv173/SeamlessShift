@@ -4,18 +4,18 @@ import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/Ba
 import { BaseSelect, Option } from '@app/components/common/selects/BaseSelect/BaseSelect';
 import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
 
-export const SexItem: React.FC = () => {
+export const RoleItem: React.FC = () => {
   //const { t } = useTranslation();
 
   return (
-    <BaseButtonsForm.Item name="sex" label='Role'>
+    <BaseButtonsForm.Item name="role" label='Role'>
       <BaseSelect>
-        <Option value="male">
+        <Option value="user">
           <BaseSpace align="center">
             User
           </BaseSpace>
         </Option>
-        <Option value="female">
+        <Option value="admin">
           <BaseSpace align="center">
             Admin
           </BaseSpace>

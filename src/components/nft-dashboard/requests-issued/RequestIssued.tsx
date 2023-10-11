@@ -21,8 +21,6 @@ export const RequestIssued: React.FC = () => {
     getRequestsIssued().then((res) => setRequests(res)); // Zmieniono na getRequestsIssued
   }, []);
 
-  const { t } = useTranslation();
-
   const requestList = useMemo(() => {
     return {
       mobile: requests.map((item, index) => <RequestCollection key={index} {...item} />).slice(0, 3),

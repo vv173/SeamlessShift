@@ -10,7 +10,6 @@ export const RequestCollection: React.FC<RequestsData> = ({
   userId,
   date,
 }) => {
-  const { t } = useTranslation();
 
   return (
     <S.Card padding={20}>

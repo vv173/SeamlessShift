@@ -15,8 +15,8 @@ interface LoginFormData {
 
 // To be deleted later
 export const initValues: LoginFormData = {
-  email: 'hello@altence.com',
-  password: 'some-test-pass',
+  email: 'jnowak@pollub.pl',
+  password: 'nowak123',
 };
 
 

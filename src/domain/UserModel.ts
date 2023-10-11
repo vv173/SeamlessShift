@@ -4,6 +4,8 @@ export interface UserModel {
   lastName: string;
   imgUrl: string;
   userName: string;
+  facility: string;
+  role: string;
   email: {
     name: string;
     verified: boolean;
@@ -14,16 +16,5 @@ export interface UserModel {
   };
   sex: 'male' | 'female';
   birthday: string;
-  lang: 'en' | 'de';
-  country: string;
-  city: string;
-  address1: string;
-  address2?: string;
-  zipcode: number;
-  website?: string;
-  socials?: {
-    twitter?: string;
-    facebook?: string;
-    linkedin?: string;
-  };
+  //lang: 'en' | 'de';
 }

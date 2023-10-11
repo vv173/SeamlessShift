@@ -4,8 +4,8 @@ import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/Ba
 import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
 import { FirstNameItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/FirstNameItem/FirstNameItem';
 import { LastNameItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/LastNameItem/LastNameItem';
-import { NicknameItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/NicknameItem/NicknameItem';
-import { SexItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/SexItem/SexItem';
+import { FacilityItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/FacilityItem/FacilityItem';
+import { RoleItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/RoleItem/RoleItem';
 import { PhoneItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/PhoneItem/PhoneItem';
 import { EmailItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/EmailItem/EmailItem';
 import { useAppSelector } from '@app/hooks/reduxHooks';
@@ -16,8 +16,8 @@ import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 interface PersonalInfoFormValues {
   lastName: string;
-  nickName: string;
-  sex?: string;
+  facility: string;
+  role: string;
   firstName: string;
   phone: string;
   email: string;
@@ -26,8 +26,8 @@ interface PersonalInfoFormValues {
 const initialPersonalInfoValues: PersonalInfoFormValues = {
   firstName: '',
   lastName: '',
-  nickName: '',
-  sex: undefined,
+  facility: '',
+  role: '',
   phone: '',
   email: '',
 };
@@ -46,8 +46,8 @@ export const PersonalInfo: React.FC = () => {
             lastName: user.lastName,
             email: user.email.name,
             phone: user.phone.number,
-            nickname: user.userName,
-            sex: user.sex,
+            facility: user.facility,
+            role: user.role,
           }
         : initialPersonalInfoValues,
     [user],
@@ -99,11 +99,11 @@ export const PersonalInfo: React.FC = () => {
           </BaseCol>
 
           <BaseCol xs={24} md={12}>
-            <NicknameItem />
+            <FacilityItem />
           </BaseCol>
 
           <BaseCol xs={24} md={12}>
-            <SexItem />
+            <RoleItem />
           </BaseCol>
 
           <BaseCol span={24}>
