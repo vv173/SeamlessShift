@@ -25,7 +25,7 @@ class UserLogin(MethodView):
             access_token = create_access_token(identity=user.id)
             return {"token": access_token, "user": user_schema.dump(user)}
 
-        abort(401, message="Invalid credentials")
+        abort(401, message="Niepoprawne dane logowania")
 
 
 @blp.route("/user")
