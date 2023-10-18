@@ -7,18 +7,18 @@ import { ViewAll } from '@app/components/nft-dashboard/common/ViewAll/ViewAll';
 import { NFTCardHeader } from '@app/components/nft-dashboard/common/NFTCardHeader/NFTCardHeader';
 import { RequestCollection } from '@app/components/nft-dashboard/requests-issued/collection/RequestCollection';
 import { useResponsive } from '@app/hooks/useResponsive';
-import { getRequestsIssued, RequestsData } from '@app/api/requestsIssued.api'; // Zmieniono na RequestsData
+import { getRequestsIssued, RequestsData } from '@app/api/requestsIssued.api'; 
 import * as S from './RequestIssued.styles';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 export const RequestIssued: React.FC = () => {
-  const [requests, setRequests] = useState<RequestsData[]>([]); // Zmieniono na RequestsData
+  const [requests, setRequests] = useState<RequestsData[]>([]);
 
   const { mobileOnly, isTablet: isTabletOrHigher } = useResponsive();
 
   useEffect(() => {
-    getRequestsIssued().then((res) => setRequests(res)); // Zmieniono na getRequestsIssued
+    getRequestsIssued().then((res) => setRequests(res)); 
   }, []);
 
   const requestList = useMemo(() => {

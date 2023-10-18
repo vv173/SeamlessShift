@@ -1,7 +1,8 @@
+
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addDeferredPrompt } from '@app/store/slices/pwaSlice';
-
+/*
 export const usePWA = (): void => {
   const dispatch = useDispatch();
 
@@ -14,3 +15,4 @@ export const usePWA = (): void => {
     window.addEventListener('beforeinstallprompt', handler);
   }, [dispatch]);
 };
+*/
