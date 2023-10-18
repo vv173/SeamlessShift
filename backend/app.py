@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 from flask_smorest import Api
 from flask_jwt_extended import JWTManager
+from flask_cors import CORS
 
 from db import db
 import models
@@ -10,6 +11,8 @@ from resources.user import blp as UserBlueprint
 
 def create_app():
     app = Flask(__name__)
+
+    CORS(app)
 
     # Update config for production use
     app.config["PROPAGATE_EXCEPTIONS"] = True

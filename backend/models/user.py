@@ -7,8 +7,8 @@ class UserModel(db.Model):
     id = db.Column('id', db.Integer, primary_key=True)
     password = db.Column('password', db.String(128),
                          unique=False, nullable=False)
-    name = db.Column('name', db.String(45), unique=False, nullable=False)
-    surname = db.Column('surname', db.String(45), unique=False, nullable=False)
+    firstName = db.Column('name', db.String(45), unique=False, nullable=False)
+    lastName = db.Column('surname', db.String(45), unique=False, nullable=False)
     email = db.Column('email', db.String(90), unique=True, nullable=False)
     phone = db.Column('phone', db.String(15), unique=True, nullable=False)
     deleted = db.Column('deleted', db.Boolean, unique=False, nullable=False)

@@ -19,9 +19,11 @@ class UserLogin(MethodView):
             UserModel.email == user_data["email"]
         ).first()
 
+        user_schema = UserSchema() # Change to blp.response
+
         if user and pbkdf2_sha256.verify(user_data["password"], user.password):
             access_token = create_access_token(identity=user.id)
-            return {"access_token": access_token}
+            return {"accessToken": access_token, "user": user_schema.dump(user)}
 
         abort(401, message="Invalid credentials")
 

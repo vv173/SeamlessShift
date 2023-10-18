@@ -18,8 +18,8 @@ class PlainUserSchema(Schema):
 
 
 class UserSchema(PlainUserSchema):
-    name = fields.Str(required=True)
-    surname = fields.Str(required=True)
+    firstName = fields.Str(required=True)
+    lastName = fields.Str(required=True)
     phone = fields.Str(required=True)
     deleted = fields.Bool(required=True)
     password_change_required = fields.Bool(required=True)
@@ -31,8 +31,8 @@ class UserSchema(PlainUserSchema):
 
 class UserUpdateSchema(Schema):
     password = fields.Str()
-    name = fields.Str()
-    surname = fields.Str()
+    firstName = fields.Str()
+    lastName = fields.Str()
     email = fields.Str()
     phone = fields.Str()
     facility_id = fields.Int()  # Consider to remove this
