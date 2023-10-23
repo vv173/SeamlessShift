@@ -7,6 +7,7 @@ export const Table = styled(AntdTable)`
     color: var(--primary-color);
     font-size: ${FONT_SIZE.xs};
     line-height: 1.25rem;
+    text-align: center;
 
     & .anticon {
       color: var(--primary-color);
@@ -84,5 +85,11 @@ export const Table = styled(AntdTable)`
     .ant-pagination-item a {
       color: var(--disabled-color);
     }
+  }
+
+  .centered-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;

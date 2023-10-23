@@ -52,40 +52,42 @@ export const MyClasses: React.FC = () => {
 
   const columns: ColumnsType<BasicTableRow> = [
     {
-      title: 'hour start',
+      title: t('myClasses.hourStart'),
       dataIndex: 'startHour',
       //render: (text: string) => <span>{text}</span>,
     },
     {
-      title: 'hour end',
+      title: t('myClasses.hourEnd'),
       dataIndex: 'hourEnd',
     },
     {
-      title: 'subject name',
+      title: t('myClasses.subjectName'),
       dataIndex: 'subjectName',
     },
     {
-      title: 'classroom',
+      title: t('myClasses.classroom'),
       dataIndex: 'classroom',
     },
     {
-      title: 'type',
+      title: t('myClasses.type'),
       dataIndex: 'type',
     },
     {
-      title: 'description',
+      title: t('myClasses.description'),
       dataIndex: 'description',
     },
     {
-      title: 'replacement',
+      title: t('myClasses.addReplacement'),
       dataIndex: 'replacement',
       width: '15%',
+      className: 'centered-cell',
       render: (text: string, record: { name: string; key: number }) => {
         return (
           <BaseSpace>
             <BaseButton
               //Dodawanie zastępstwa
               type="ghost"
+              className='filled-button'
               onClick={() => {
                 notificationController.info({ message: t('tables.inviteMessage', { name: record.name }) });
               }}
@@ -99,7 +101,7 @@ export const MyClasses: React.FC = () => {
   ];
 
   return (
-    <DashboardCard title="My classes">
+    <DashboardCard title={t('myClasses.title')}>
       <BaseButtonsForm.Item name="date">
       <DayjsDatePicker onChange={(date: Dayjs | null) => setSelectedDate(date ? date.toDate() : null)} />
       </BaseButtonsForm.Item>

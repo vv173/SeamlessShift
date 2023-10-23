@@ -17,7 +17,7 @@ export const languages: Language[] = [
   {
     id: 2,
     name: 'pl',
-    title: 'Polish',
+    title: 'Polski',
     countryCode: 'pl',
   },
 ];

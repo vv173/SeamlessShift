@@ -114,6 +114,7 @@
   },
   "common": {
     "address": "Address",
+    "admin": "Administrator",
     "advancedForms": "Advanced Forms",
     "age": "Age",
     "alert": "Alert",
@@ -150,6 +151,7 @@
     "day": "day",
     "deleteQuestion": "Are you sure you want to delete?",
     "dermatologist": "Dermatologist",
+    "division": "Division",
     "doctor": "Doctor",
     "dropdown": "Dropdown",
     "edit": "Edit",
@@ -202,12 +204,14 @@
     "profilePage": "Profile Page",
     "progress": "Progress",
     "pwa": "Install PWA",
+    "raports": "Raports",
     "radio": "Radio",
     "rate": "Rate",
     "reactSimpleMaps": "React Simple Maps",
     "requiredField": "This field is required!",
     "resetPassword": "Reset password",
     "result": "Result",
+    "role": "Role",
     "save": "Save",
     "securityCode": "Security Code",
     "select": "Select",
@@ -229,6 +233,7 @@
     "twoFactorAuthPage": "Two-Factor auth page",
     "ui": "UI Components",
     "upload": "Upload",
+    "user": "User",
     "verifCodeSent": "We have sent a verification code to your email",
     "verifyEmailPage": "Verify email page",
     "warning": "Warning",
@@ -236,56 +241,31 @@
     "delete": "Delete",
     "deleteSelected": "Delete selected"
   },
+
+  "myClasses": {
+    "title": "My classes",
+    "hourStart": "Start",
+    "hourEnd": "Finish",
+    "subjectName": "Subject",
+    "classroom": "Classroom",
+    "type": "Type",
+    "description": "Description",
+    "addReplacement": "Add replacement"
+  },
+
+  "addingRequest": {
+    "title": "Adding request",
+    "selectDate": "Select date",
+    "selectSubjects": "Select subjects",
+    "comment": "Comment",
+    "addOptionalComment": "Add optional comment",
+    "emptyDateWarning": "Date field cannot be empty!",
+    "emptySubjectsWarning": "Subjects field cannot be empty!"
+  },
+
   "medical-dashboard": {
-    "activity": {
-      "kcalBurned": "kcal burned on",
-      "title": "Activity"
-    },
-    "bloodScreening": {
-      "flag": "Flag",
-      "high": "HIGH",
-      "low": "LOW",
-      "norm": "NORM",
-      "result": "Result",
-      "test": "Test",
-      "title": "Blood screening",
-      "units": "Units"
-    },
-    "bones": "Bones",
-    "covid": {
-      "casesPerDay": "cases/day",
-      "deaths": "deaths",
-      "title": "Real COVID-19 Statistics"
-    },
-    "fat": "Fat",
-    "favoriteDoctors": {
-      "lastVisit": "Last visit",
-      "title": "Favorite doctors"
-    },
     "health": {
-      "ecology": {
-        "description": "The environment is a major determinant of health, estimated to account for almost 20% of all deaths in the WHO European Region.",
-        "title": "Ecology"
-      },
-      "genetics": {
-        "description": "Multivariate studies show that genetic factors enhancing SWB are partly overlapping with those protecting against depression and other mental health problems.",
-        "title": "Genetics"
-      },
-      "lifestyle": {
-        "description": "According to WHO, 60% of related factors to individual health and quality of life are correlated to lifestyle.",
-        "title": "Lifestyle"
-      },
-      "medicine": {
-        "description": "Relationship between health insurance (or lack of insurance), use of medical care and health outcomes for specific conditions and types of services, and with overall health status and mortality.",
-        "title": "Medicine"
-      },
       "title": "Health"
-    },
-    "latestScreenings": {
-      "friends": "Friends",
-      "month": "Month",
-      "statistics": "Statistics",
-      "title": "Latest screenings"
     },
     "map": {
       "polyclinic": "Polyclinic"
@@ -551,16 +531,6 @@
     "successDescription": "Please, use your email with a new password to log in",
     "successMessage": "New password was set",
     "title": "Create new password"
-  },
-  "newsFeed": {
-    "apply": "Apply",
-    "authorSearch": "Author",
-    "filter": "Filter",
-    "from": "From",
-    "reset": "Reset",
-    "tag": "Tag",
-    "titleSearch": "Title",
-    "to": "To"
   },
   "notifications": {
     "basic": "Basic notification",

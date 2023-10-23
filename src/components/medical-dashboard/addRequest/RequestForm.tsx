@@ -28,7 +28,7 @@ export const RequestForm: React.FC = () => {
   };
 
   return (
-    <DashboardCard title="Adding request">
+    <DashboardCard title={t('addingRequest.title')}>
       <BaseButtonsForm
         {...formItemLayout}
         isFieldsChanged={isFieldsChanged}
@@ -38,16 +38,16 @@ export const RequestForm: React.FC = () => {
       >
         <BaseButtonsForm.Item
           name="date"
-          label="Select date"
-          rules={[{ required: true, message: 'Date field must not be empty!' }]}
+          label={t('addingRequest.selectDate')}
+          rules={[{ required: true, message: t('addingRequest.emptyDateWarning') }]}
         >
           <DayjsDatePicker />
         </BaseButtonsForm.Item>
 
         <BaseButtonsForm.Item
           name="select-multiple"
-          label="Select subjects"
-          rules={[{ required: true, message: 'Please select subjects!', type: 'array' }]}
+          label={t('addingRequest.selectSubjects')}
+          rules={[{ required: true, message: t('addingRequest.emptySubjectsWarning'), type: 'array' }]}
         >
           <BaseSelect mode="multiple">
             <Option value="s1">subject 1</Option>
@@ -56,8 +56,8 @@ export const RequestForm: React.FC = () => {
           </BaseSelect>
         </BaseButtonsForm.Item>
 
-        <BaseButtonsForm.Item name="comment" label="Comment" rules={[{ required: false }]}>
-          <BaseInput.TextArea rows={4} placeholder="Optional comment" />
+        <BaseButtonsForm.Item name="comment" label={t('addingRequest.comment')} rules={[{ required: false }]}>
+          <BaseInput.TextArea rows={4} placeholder={t('addingRequest.addOptionalComment')} />
         </BaseButtonsForm.Item>
       </BaseButtonsForm>
     </DashboardCard>

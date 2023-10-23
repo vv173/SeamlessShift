@@ -75,20 +75,19 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
     ],
   },
   {
-    //title: 'common.dataTables',
-    title: 'Management Tables',
+    title: 'common.dataTables',
     key: 'dataTables',
     url: '/data-tables',
     icon: <TableOutlined />,
   },
   {
-    title: 'Raports',
+    title: 'common.raports',
     key: 'charts',
     url: '/charts',
     icon: <LineChartOutlined />,
   },
   {
-    title: 'Profile Page',
+    title: 'common.profilePage',
     key: 'profile',
     url: '/profile',
     icon: <LayoutOutlined />,

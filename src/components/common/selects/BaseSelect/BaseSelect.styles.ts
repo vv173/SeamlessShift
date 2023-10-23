@@ -20,6 +20,7 @@ export const Select = styled(AntSelect)<InternalSelectProps>`
     background: var(--secondary-background-color);
 
     border-radius: ${BORDER_RADIUS};
+
   }
 
   .ant-select-selection-placeholder {
@@ -28,6 +29,7 @@ export const Select = styled(AntSelect)<InternalSelectProps>`
     color: var(--text-main-color);
   }
 
+  // strzalka rozwijania
   .ant-select-arrow {
     color: var(--text-main-color);
   }

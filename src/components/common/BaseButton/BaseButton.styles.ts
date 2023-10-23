@@ -28,6 +28,7 @@ export const Button = styled(AntButton)<BtnProps>`
   &[disabled]:hover {
     color: var(--disabled-color);
   }
+
   ${(props) =>
     !props.danger &&
     css`

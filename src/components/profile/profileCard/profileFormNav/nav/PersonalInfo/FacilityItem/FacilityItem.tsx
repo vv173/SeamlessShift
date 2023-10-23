@@ -1,14 +1,14 @@
 import React from 'react';
-//import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 import { BaseSelect, Option } from '@app/components/common/selects/BaseSelect/BaseSelect';
 import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
 
 export const FacilityItem: React.FC = () => {
-  //const { t } = useTranslation();
+  const { t } = useTranslation();
 
   return (
-    <BaseButtonsForm.Item name="facility" label="Division">
+    <BaseButtonsForm.Item name="division" label={t('common.division')}>
       <BaseSelect>
         <Option value="pacd">
           <BaseSpace align="center">Programming and Computer Graphics</BaseSpace>
