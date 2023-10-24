@@ -9,6 +9,7 @@ import {
   TableOutlined,
   UserOutlined,
   BlockOutlined,
+  ScheduleOutlined
 } from '@ant-design/icons';
 
 export interface SidebarNavigationItem {
@@ -85,6 +86,13 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
     key: 'charts',
     url: '/charts',
     icon: <LineChartOutlined />,
+  },
+  {
+    //title: 'common.raports',
+    title: 'My classes',
+    key: 'myClasses',
+    url: '/my-classes',
+    icon: <ScheduleOutlined />,
   },
   {
     title: 'common.profilePage',

@@ -13,9 +13,11 @@ import RequireAuth from '@app/components/router/RequireAuth';
 import { withLoading } from '@app/hocs/withLoading.hoc';
 import NftDashboardPage from '@app/pages/DashboardPages/NftDashboardPage';
 import MedicalDashboardPage from '@app/pages/DashboardPages/MedicalDashboardPage';
+//import { MyClasses } from '../medical-dashboard/myClasses/MyClasses';
 
 const DataTablesPage = React.lazy(() => import('@app/pages/DataTablesPage'));
 const ChartsPage = React.lazy(() => import('@app/pages/ChartsPage'));
+const MyClassesPage = React.lazy(() => import('@app/pages/MyClassesPage'));
 const AdvancedFormsPage = React.lazy(() => import('@app/pages/AdvancedFormsPage'));
 const PersonalInfoPage = React.lazy(() => import('@app/pages/PersonalInfoPage'));
 const SecuritySettingsPage = React.lazy(() => import('@app/pages/SecuritySettingsPage'));
@@ -86,6 +88,7 @@ const Skeletons = withLoading(SkeletonsPage);
 
 const DataTables = withLoading(DataTablesPage);
 const Charts = withLoading(ChartsPage);
+const MyClasses = withLoading(MyClassesPage);
 
 // Profile
 const PersonalInfo = withLoading(PersonalInfoPage);
@@ -112,6 +115,7 @@ export const AppRouter: React.FC = () => {
           </Route>
           <Route path="data-tables" element={<DataTables />} />
           <Route path="charts" element={<Charts />} />
+          <Route path='my-classes' element={<MyClasses />} />
           <Route path="profile" element={<ProfileLayout />}>
             <Route path="personal-info" element={<PersonalInfo />} />
             <Route path="security-settings" element={<SecuritySettings />} />
