@@ -5,7 +5,7 @@ import { BaseSelect, Option } from '@app/components/common/selects/BaseSelect/Ba
 import { BaseInput } from '@app/components/common/inputs/BaseInput/BaseInput';
 import { DayjsDatePicker } from '@app/components/common/pickers/DayjsDatePicker';
 import { notificationController } from '@app/controllers/notificationController';
-import { DashboardCard } from '../DashboardCard/DashboardCard';
+import { DashboardCard } from '../medical-dashboard/DashboardCard/DashboardCard';
 
 const formItemLayout = {
   labelCol: { span: 24 },

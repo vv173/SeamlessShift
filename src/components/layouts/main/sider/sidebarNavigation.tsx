@@ -9,7 +9,8 @@ import {
   TableOutlined,
   UserOutlined,
   BlockOutlined,
-  ScheduleOutlined
+  ScheduleOutlined,
+  AppstoreAddOutlined
 } from '@ant-design/icons';
 
 export interface SidebarNavigationItem {
@@ -88,11 +89,16 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
     icon: <LineChartOutlined />,
   },
   {
-    //title: 'common.raports',
-    title: 'My classes',
+    title: 'common.myClasses',
     key: 'myClasses',
     url: '/my-classes',
     icon: <ScheduleOutlined />,
+  },
+  {
+    title: 'common.addRequest',
+    key: 'addRequest',
+    url: '/add-request',
+    icon: <AppstoreAddOutlined />,
   },
   {
     title: 'common.profilePage',

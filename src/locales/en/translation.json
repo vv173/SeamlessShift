@@ -113,6 +113,7 @@
     "unchecked": "Unchecked"
   },
   "common": {
+    "addRequest": "Add request",
     "address": "Address",
     "admin": "Administrator",
     "advancedForms": "Advanced Forms",
@@ -183,6 +184,7 @@
     "maps": "Maps",
     "modal": "Modal",
     "moreDetails": "More details",
+    "myClasses": "My classes",
     "name": "Name",
     "neurologist": "Neurologist",
     "newPassword": "New Password",

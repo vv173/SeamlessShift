@@ -113,6 +113,7 @@
     "unchecked": "Niezaznaczone"
   },
   "common": {
+    "addRequest": "Dodaj prośbę",
     "address": "Adres",
     "admin": "Administrator",
     "advancedForms": "Zaawansowane formularze",
@@ -183,6 +184,7 @@
     "maps": "Mapy",
     "modal": "Modal",
     "moreDetails": "Więcej szczegółów",
+    "myClasses": "Moje zajęcia",
     "name": "Imię",
     "neurologist": "Neurolog",
     "newPassword": "Nowe hasło",

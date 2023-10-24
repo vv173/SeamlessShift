@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { notificationController } from 'controllers/notificationController';
 import { useMounted } from '@app/hooks/useMounted';
 import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
-import { DashboardCard } from '../DashboardCard/DashboardCard';
+import { DashboardCard } from '../medical-dashboard/DashboardCard/DashboardCard';
 import { DayjsDatePicker } from '@app/components/common/pickers/DayjsDatePicker';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 import { Dayjs } from 'dayjs';
