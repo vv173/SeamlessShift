@@ -185,6 +185,7 @@
     "modal": "Modal",
     "moreDetails": "Więcej szczegółów",
     "myClasses": "Moje zajęcia",
+    "myAccount": "Moje konto",
     "name": "Imię",
     "neurologist": "Neurolog",
     "newPassword": "Nowe hasło",
@@ -255,6 +256,14 @@
     "addReplacement": "Dodaj zastępstwo"
   },
 
+  "requestsIssued": {
+    "title": "Wystawione prośby",
+    "issueDate": "Data wystawienia",
+    "comment": "Komentarz",
+    "date": "Data",
+    "takeUp": "Zgłoś się"
+  },
+
   "addingRequest": {
     "title": "Dodawanie prośby o zastępstwo",
     "selectDate": "Wybierz datę",
@@ -273,21 +282,6 @@
       "polyclinic": "Przychodnia"
     },
     "news": "Wiadomości",
-    "patientResults": {
-      "patientAdmission": {
-        "description": "Przyjęcie pacjenta oznacza pozwolenie i ułatwienie pacjentowi pozostania w oddziale szpitalnym lub na oddziale do obserwacji, badania i leczenia choroby, z którą się boryka.",
-        "title": "Przyjęcie pacjenta"
-      },
-      "patientDischarge": {
-        "description": "Szpital wypuszcza cię, gdy nie potrzebujesz już leczenia szpitalnego i możesz wrócić do domu. Lub szpital wypisze cię, abyś mógł być przeniesiony do innego rodzaju placówki.",
-        "title": "Wypis pacjenta"
-      },
-      "title": "Historia pacjenta",
-      "treatmentStarts": {
-        "description": "Część oceny i leczenia każdego pacjenta, niezależnie od jego stanu czy diagnozy, obejmuje odpowiednią ramę lub drogę do diagnozy, leczenia i w razie potrzeby skierowania do specjalisty.",
-        "title": "Rozpoczęcie leczenia"
-      }
-    },
     "protein": "Białko",
     "treatmentPlan": {
       "noVisits": "Brak wizyt tego dnia",

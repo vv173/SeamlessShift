@@ -185,6 +185,7 @@
     "modal": "Modal",
     "moreDetails": "More details",
     "myClasses": "My classes",
+    "myAccount": "My account",
     "name": "Name",
     "neurologist": "Neurologist",
     "newPassword": "New Password",
@@ -255,6 +256,14 @@
     "addReplacement": "Add replacement"
   },
 
+  "requestsIssued": {
+    "title": "Requests issued",
+    "issueDate": "Issue date",
+    "comment": "Comment",
+    "date": "Date",
+    "takeUp": "Take up"
+  },
+
   "addingRequest": {
     "title": "Adding request",
     "selectDate": "Select date",
@@ -273,21 +282,6 @@
       "polyclinic": "Polyclinic"
     },
     "news": "News",
-    "patientResults": {
-      "patientAdmission": {
-        "description": "Admission of a patient means allowing and facilitating a patient to stay in the hospital unit or ward for observation, investigation, and treatment of the disease he or she is suffering from.",
-        "title": "Patient admission"
-      },
-      "patientDischarge": {
-        "description": "A hospital will discharge you when you no longer need to receive inpatient care and can go home. Or, a hospital will discharge you to send you to another type of facility.",
-        "title": "Patient's discharge"
-      },
-      "title": "Patient timeline",
-      "treatmentStarts": {
-        "description": "Part of the evaluation and treatment of any patient, regardless of condition or diagnosis, is an appropriate framework or pathway for diagnosis, treatment, and, if necessary, referral for specialty care.",
-        "title": "Treatment starts"
-      }
-    },
     "protein": "Protein",
     "treatmentPlan": {
       "noVisits": "No visits for that day",

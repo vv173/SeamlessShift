@@ -2,11 +2,11 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 //import { TreatmentCard } from '@app/components/medical-dashboard/treatmentCard/TreatmentCard';
-import { References } from '@app/components/common/References/References';
+//import { References } from '@app/components/common/References/References';
 import { useResponsive } from '@app/hooks/useResponsive';
 //import * as S from './DashboardPage.styles';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
-import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+//import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 const MedicalDashboardPage: React.FC = () => {
   const { isTablet, isDesktop } = useResponsive();

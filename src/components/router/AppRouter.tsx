@@ -118,7 +118,7 @@ export const AppRouter: React.FC = () => {
           <Route path="charts" element={<Charts />} />
           <Route path='my-classes' element={<MyClasses />} />
           <Route path='add-request' element={<AddRequest />} />
-          <Route path="profile" element={<ProfileLayout />}>
+          <Route path="my-account" element={<ProfileLayout />}>
             <Route path="personal-info" element={<PersonalInfo />} />
             <Route path="security-settings" element={<SecuritySettings />} />
           </Route>

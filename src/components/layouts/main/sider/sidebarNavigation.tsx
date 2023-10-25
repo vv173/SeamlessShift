@@ -1,10 +1,8 @@
 import React from 'react';
 import {
-  //CompassOutlined,
   DashboardOutlined,
   FormOutlined,
-  //HomeOutlined,
-  LayoutOutlined,
+  HomeOutlined,
   LineChartOutlined,
   TableOutlined,
   UserOutlined,
@@ -26,9 +24,8 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
     //title: 'common.nft-dashboard',
     title: 'Dashboard 1',
     key: 'nft-dashboard',
-    // TODO use path variable
     url: '/',
-    icon: <DashboardOutlined />,
+    icon: <HomeOutlined />,
   },
   {
     //title: 'common.medical-dashboard',
@@ -101,10 +98,10 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
     icon: <AppstoreAddOutlined />,
   },
   {
-    title: 'common.profilePage',
-    key: 'profile',
-    url: '/profile',
-    icon: <LayoutOutlined />,
+    title: 'common.myAccount',
+    key: 'myAccount',
+    url: '/my-account',
+    icon: <UserOutlined />,
   },
   {
     title: 'common.ui',

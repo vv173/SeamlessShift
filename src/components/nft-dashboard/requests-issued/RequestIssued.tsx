@@ -13,6 +13,8 @@ import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 export const RequestIssued: React.FC = () => {
+  const { t } = useTranslation();
+
   const [requests, setRequests] = useState<RequestsData[]>([]);
 
   const { mobileOnly, isTablet: isTabletOrHigher } = useResponsive();
@@ -38,7 +40,7 @@ export const RequestIssued: React.FC = () => {
 
   return (
     <>
-      <NFTCardHeader title='Current requests'>
+      <NFTCardHeader title={t('requestsIssued.title')}>
         {isTabletOrHigher && (
           <BaseRow align="middle">
             <BaseCol>

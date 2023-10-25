@@ -1,7 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { RequestsData } from '@app/api/requestsIssued.api';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import * as S from './RequestCollection.styles';
+
 
 export const RequestCollection: React.FC<RequestsData> = ({
   issueDate,
@@ -11,15 +13,16 @@ export const RequestCollection: React.FC<RequestsData> = ({
   date,
 }) => {
 
+  const { t } = useTranslation();
+
   return (
     <S.Card padding={20}>
-      {/* Renderowanie komponentu na podstawie przekazanych właściwości */}
-      <div>Issue Date: {issueDate.toLocaleString()}</div>
-      <div>Comment: {comment}</div>
-      <div>Classes ID: {classesId}</div>
-      <div>User ID: {userId}</div>
-      <div>Date: {date.toLocaleString()}</div>
-      <S.BidButton type="ghost">Take up</S.BidButton>
+      <BaseRow>{t('requestsIssued.issueDate')}: {issueDate.toLocaleString()}</BaseRow>
+      <BaseRow>{t('requestsIssued.comment')}: {comment}</BaseRow>
+      <BaseRow>Classes ID: {classesId}</BaseRow>
+      <BaseRow>User ID: {userId}</BaseRow>
+      <BaseRow>{t('requestsIssued.date')}: {date.toLocaleString()}</BaseRow>
+      <S.BidButton type="ghost">{t('requestsIssued.takeUp')}</S.BidButton>
     </S.Card>
   );
 };
