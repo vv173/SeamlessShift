@@ -51,7 +51,6 @@ CREATE TABLE IF NOT EXISTS `shift_db`.`user` (
   `password_change_required` TINYINT(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
-  UNIQUE INDEX `phone_UNIQUE` (`phone` ASC) VISIBLE,
   INDEX `fk_user_facility_idx` (`facility_id` ASC) VISIBLE,
   INDEX `fk_user_role1_idx` (`role_id` ASC) VISIBLE,
   CONSTRAINT `fk_user_facility`
@@ -67,10 +66,70 @@ CREATE TABLE IF NOT EXISTS `shift_db`.`user` (
 ENGINE = InnoDB;
 
 
+
+-- -----------------------------------------------------
+-- Table `shift_db`.`class_type`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `shift_db`.`class_type` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `type` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `type_UNIQUE` (`type` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `shift_db`.`course`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `shift_db`.`course` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(60) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `shift_db`.`class`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `shift_db`.`class` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `description` VARCHAR(150) NULL,
+  `day` VARCHAR(10) NOT NULL,
+  `start` TIME NOT NULL,
+  `end` TIME NOT NULL,
+  `classroom` VARCHAR(8) NOT NULL,
+  `user_id` INT NOT NULL,
+  `start_day` DATE NOT NULL,
+  `end_day` DATE NOT NULL,
+  `class_type_id` INT NOT NULL,
+  `course_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `day_UNIQUE` (`day` ASC) VISIBLE,
+  INDEX `fk_class_user1_idx` (`user_id` ASC) VISIBLE,
+  INDEX `fk_class_class_type1_idx` (`class_type_id` ASC) VISIBLE,
+  INDEX `fk_class_course1_idx` (`course_id` ASC) VISIBLE,
+  CONSTRAINT `fk_class_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `shift_db`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_class_class_type1`
+    FOREIGN KEY (`class_type_id`)
+    REFERENCES `shift_db`.`class_type` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_class_course1`
+    FOREIGN KEY (`course_id`)
+    REFERENCES `shift_db`.`course` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 -- Inserting roles
 INSERT INTO shift_db.role (id, name) VALUES (1, 'user'), (2, 'admin');
 
--- Inserting facilities (you can add more as needed)
+-- Inserting facilities
 INSERT INTO shift_db.facility (id, name) VALUES (1, 'Facility A'), (2, 'Facility B'), (3, 'Facility C');
 
 -- Inserting users
@@ -80,6 +139,9 @@ VALUES
   (2, '$pbkdf2-sha256$29000$.V8LwXiPca61tvb.P0fIeQ$BtPjf.0tBC8vypK6cgrYzbQka3sLi918TtdyOHwrTVY', 'Jan', 'Kowalski', 'jan.kowalski@pollub.pl', '555-555-5552', 2, 1, 0, 1), -- Regular user
   (3, '$pbkdf2-sha256$29000$E6JUKmWstRYCgBCCkPIeow$2rAXUlPWfOGceJb4nXqwAYiq5tOH/.Kw5vF9X0y/uLw', 'student', 'student', 'student@pollub.pl', '555-555-5553', 3, 1, 0, 1); -- Regular user
 
+-- Inserting class
+INSERT INTO shift_db.class_type (id, type) VALUES (1, 'Wyklad'), (2, 'Cwiczenie');
+INSERT INTO shift_db.course (id, name) VALUES (1, 'Fizyka'), (2, 'Matematyka');
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
