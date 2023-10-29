@@ -7,6 +7,7 @@ from db import db
 import models
 
 from resources.user import blp as UserBlueprint
+from resources.facility import blp as FacilityBlueprint
 
 
 def create_app():
@@ -71,6 +72,7 @@ def create_app():
         db.create_all()
 
     api.register_blueprint(UserBlueprint)
+    api.register_blueprint(FacilityBlueprint)
 
     # if __name__ == '__main__':
     #    app.run()

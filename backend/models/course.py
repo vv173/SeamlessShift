@@ -8,5 +8,6 @@ class CourseModel(db.Model):
     name = db.Column('name', db.String(60), unique=True, nullable=False)
 
     # Relationships
-    classes = db.relationship(
-        "ClassModel", back_populates="course", lazy='dynamic')
+    subjects = db.relationship(
+        "SubjectModel", back_populates="course", lazy='dynamic')
+

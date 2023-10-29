@@ -68,9 +68,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `shift_db`.`class_type`
+-- Table `shift_db`.`subject_type`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `shift_db`.`class_type` (
+CREATE TABLE IF NOT EXISTS `shift_db`.`subject_type` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `type` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
@@ -89,9 +89,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `shift_db`.`class`
+-- Table `shift_db`.`subject`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `shift_db`.`class` (
+CREATE TABLE IF NOT EXISTS `shift_db`.`subject` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `description` VARCHAR(150) NULL,
   `day` VARCHAR(10) NOT NULL,
@@ -101,24 +101,24 @@ CREATE TABLE IF NOT EXISTS `shift_db`.`class` (
   `user_id` INT NOT NULL,
   `start_day` DATE NOT NULL,
   `end_day` DATE NOT NULL,
-  `class_type_id` INT NOT NULL,
+  `subject_type_id` INT NOT NULL,
   `course_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `day_UNIQUE` (`day` ASC) VISIBLE,
-  INDEX `fk_class_user1_idx` (`user_id` ASC) VISIBLE,
-  INDEX `fk_class_class_type1_idx` (`class_type_id` ASC) VISIBLE,
-  INDEX `fk_class_course1_idx` (`course_id` ASC) VISIBLE,
-  CONSTRAINT `fk_class_user1`
+  INDEX `fk_subject_user1_idx` (`user_id` ASC) VISIBLE,
+  INDEX `fk_subject_subject_type1_idx` (`subject_type_id` ASC) VISIBLE,
+  INDEX `fk_subject_course1_idx` (`course_id` ASC) VISIBLE,
+  CONSTRAINT `fk_subject_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `shift_db`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_class_class_type1`
-    FOREIGN KEY (`class_type_id`)
-    REFERENCES `shift_db`.`class_type` (`id`)
+  CONSTRAINT `fk_subject_subject_type1`
+    FOREIGN KEY (`subject_type_id`)
+    REFERENCES `shift_db`.`subject_type` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_class_course1`
+  CONSTRAINT `fk_subject_course1`
     FOREIGN KEY (`course_id`)
     REFERENCES `shift_db`.`course` (`id`)
     ON DELETE NO ACTION
@@ -139,8 +139,8 @@ VALUES
   (2, '$pbkdf2-sha256$29000$.V8LwXiPca61tvb.P0fIeQ$BtPjf.0tBC8vypK6cgrYzbQka3sLi918TtdyOHwrTVY', 'Jan', 'Kowalski', 'jan.kowalski@pollub.pl', '555-555-5552', 2, 1, 0, 1), -- Regular user
   (3, '$pbkdf2-sha256$29000$E6JUKmWstRYCgBCCkPIeow$2rAXUlPWfOGceJb4nXqwAYiq5tOH/.Kw5vF9X0y/uLw', 'student', 'student', 'student@pollub.pl', '555-555-5553', 3, 1, 0, 1); -- Regular user
 
--- Inserting class
-INSERT INTO shift_db.class_type (id, type) VALUES (1, 'Wyklad'), (2, 'Cwiczenie');
+-- Inserting subject
+INSERT INTO shift_db.subject_type (id, type) VALUES (1, 'Wyklad'), (2, 'Cwiczenie');
 INSERT INTO shift_db.course (id, name) VALUES (1, 'Fizyka'), (2, 'Matematyka');
 
 SET SQL_MODE=@OLD_SQL_MODE;

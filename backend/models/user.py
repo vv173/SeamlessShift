@@ -25,5 +25,5 @@ class UserModel(db.Model):
     # Relationships
     facility = db.relationship("FacilityModel", back_populates="users")
     role = db.relationship("RoleModel", back_populates="users")
-    classes = db.relationship(
-        "ClassModel", back_populates="user", lazy='dynamic')
+    subjects = db.relationship(
+        "SubjectModel", back_populates="user", lazy='dynamic')

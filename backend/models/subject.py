@@ -1,8 +1,8 @@
 from db import db
 
 
-class ClassModel(db.Model):
-    __tablename__ = "class"
+class SubjectModel(db.Model):
+    __tablename__ = "subject"
 
     id = db.Column('id', db.Integer, primary_key=True)
     description = db.Column('description', db.String(
@@ -20,11 +20,11 @@ class ClassModel(db.Model):
         "user.id"), unique=False, nullable=False)
     course_id = db.Column('course_id', db.Integer, db.ForeignKey(
         "course.id"), unique=False, nullable=False)
-    class_type_id = db.Column('class_type_id', db.Integer, db.ForeignKey(
-        "class_type.id"), unique=False, nullable=False)
+    subject_type_id = db.Column('subject_type_id', db.Integer, db.ForeignKey(
+        "subject_type.id"), unique=False, nullable=False)
 
     # Relationships
-    user = db.relationship("RoleModel", back_populates="class")
-    course = db.relationship("CourseModel", back_populates="classes")
-    class_type = db.relationship(
-        "ClassTypeModel", back_populates="classes")
+    user = db.relationship("UserModel", back_populates="subjects")
+    course = db.relationship("CourseModel", back_populates="subjects")
+    subject_type = db.relationship(
+        "SubjectTypeModel", back_populates="subjects")

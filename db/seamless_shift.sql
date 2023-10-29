@@ -71,9 +71,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `shift_db`.`class_type`
+-- Table `shift_db`.`subject_type`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `shift_db`.`class_type` (
+CREATE TABLE IF NOT EXISTS `shift_db`.`subject_type` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `type` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
@@ -92,9 +92,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `shift_db`.`class`
+-- Table `shift_db`.`subject`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `shift_db`.`class` (
+CREATE TABLE IF NOT EXISTS `shift_db`.`subject` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `description` VARCHAR(150) NULL,
   `day` VARCHAR(10) NOT NULL,
@@ -104,24 +104,24 @@ CREATE TABLE IF NOT EXISTS `shift_db`.`class` (
   `user_id` INT NOT NULL,
   `start_day` DATE NOT NULL,
   `end_day` DATE NOT NULL,
-  `class_type_id` INT NOT NULL,
+  `subject_type_id` INT NOT NULL,
   `course_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `day_UNIQUE` (`day` ASC) VISIBLE,
-  INDEX `fk_class_user1_idx` (`user_id` ASC) VISIBLE,
-  INDEX `fk_class_class_type1_idx` (`class_type_id` ASC) VISIBLE,
-  INDEX `fk_class_course1_idx` (`course_id` ASC) VISIBLE,
-  CONSTRAINT `fk_class_user1`
+  INDEX `fk_subject_user1_idx` (`user_id` ASC) VISIBLE,
+  INDEX `fk_subject_subject_type1_idx` (`subject_type_id` ASC) VISIBLE,
+  INDEX `fk_subject_course1_idx` (`course_id` ASC) VISIBLE,
+  CONSTRAINT `fk_subject_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `shift_db`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_class_class_type1`
-    FOREIGN KEY (`class_type_id`)
-    REFERENCES `shift_db`.`class_type` (`id`)
+  CONSTRAINT `fk_subject_subject_type1`
+    FOREIGN KEY (`subject_type_id`)
+    REFERENCES `shift_db`.`subject_type` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_class_course1`
+  CONSTRAINT `fk_subject_course1`
     FOREIGN KEY (`course_id`)
     REFERENCES `shift_db`.`course` (`id`)
     ON DELETE NO ACTION
@@ -136,15 +136,15 @@ CREATE TABLE IF NOT EXISTS `shift_db`.`request` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `issue_date` DATETIME NOT NULL,
   `comment` VARCHAR(150) NULL,
-  `class_id` INT NOT NULL,
+  `subject_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   `date` DATETIME NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_request_subject1_idx` (`class_id` ASC) VISIBLE,
+  INDEX `fk_request_subject1_idx` (`subject_id` ASC) VISIBLE,
   INDEX `fk_request_user1_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_request_subject1`
-    FOREIGN KEY (`class_id`)
-    REFERENCES `shift_db`.`class` (`id`)
+    FOREIGN KEY (`subject_id`)
+    REFERENCES `shift_db`.`subject` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_request_user1`
@@ -172,12 +172,12 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `shift_db`.`replacement` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `request_id` INT NOT NULL,
-  `class_id` INT NOT NULL,
+  `subject_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   `replacement_status_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_replacement_request1_idx` (`request_id` ASC) VISIBLE,
-  INDEX `fk_replacement_subject1_idx` (`class_id` ASC) VISIBLE,
+  INDEX `fk_replacement_subject1_idx` (`subject_id` ASC) VISIBLE,
   INDEX `fk_replacement_user1_idx` (`user_id` ASC) VISIBLE,
   INDEX `fk_replacement_replacement_status1_idx` (`replacement_status_id` ASC) VISIBLE,
   CONSTRAINT `fk_replacement_request1`
@@ -186,8 +186,8 @@ CREATE TABLE IF NOT EXISTS `shift_db`.`replacement` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_replacement_subject1`
-    FOREIGN KEY (`class_id`)
-    REFERENCES `shift_db`.`class` (`id`)
+    FOREIGN KEY (`subject_id`)
+    REFERENCES `shift_db`.`subject` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_replacement_user1`

@@ -19,7 +19,7 @@ class UserLogin(MethodView):
             UserModel.email == user_data["email"]
         ).first()
 
-        user_schema = UserSchema() # Change to blp.response
+        user_schema = UserSchema()  # Change to blp.response
 
         if user and pbkdf2_sha256.verify(user_data["password"], user.password):
             access_token = create_access_token(identity=user.id)
@@ -53,6 +53,8 @@ class UserList(MethodView):
         return user, 201
 
 # Bad data exception?
+
+
 @blp.route("/user/<int:user_id>")
 class User(MethodView):
     @jwt_required()
