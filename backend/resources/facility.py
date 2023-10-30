@@ -14,6 +14,7 @@ blp = Blueprint("Facilities", __name__, description="Operations on facilities")
 class FacilityList(MethodView):
 
     @jwt_required()
+    # Should it return information about users?
     @blp.response(200, FacilitySchema(many=True))
     def get(self):
         return FacilityModel.query.all()
@@ -47,8 +48,7 @@ class Facility(MethodView):
     @blp.response(200, FacilitySchema)
     def put(self, facility_data, facility_id):
         facility = FacilityModel.query.get_or_404(facility_id)
-        for key, value in facility_data.items():
-            setattr(facility, key, value)
+        facility.name = facility_data["name"]
         try:
             db.session.add(facility)
             db.session.commit()
