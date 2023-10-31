@@ -11,10 +11,34 @@ class PlainFacilitySchema(Schema):
     name = fields.Str(required=True)
 
 
+class PlainCourseSchema(Schema):
+    id = fields.Int(dump_only=True)
+    name = fields.Str(required=True)
+
+
+class PlainSubjectTypeSchema(Schema):
+    id = fields.Int(dump_only=True)
+    name = fields.Str()
+
+
 class PlainUserSchema(Schema):
     id = fields.Int(dump_only=True)
     email = fields.Str(required=True)
     password = fields.Str(required=True, load_only=True)
+
+
+class PlainSubjectSchema(Schema):
+    id = fields.Int(dump_only=True)
+    description = fields.Str()
+    day = fields.Str(required=True)
+    start = fields.Time(required=True)
+    end = fields.Time(required=True)
+    classroom = fields.Str(required=True)
+    start_day = fields.Date(required=True)
+    end_day = fields.Date(required=True)
+    user_id = fields.Int(required=True)
+    course_id = fields.Int(required=True)
+    subject_type_id = fields.Int(required=True)
 
 
 class UserSchema(PlainUserSchema):
@@ -23,10 +47,20 @@ class UserSchema(PlainUserSchema):
     phone = fields.Str(required=True)
     deleted = fields.Bool(required=True)
     password_change_required = fields.Bool(required=True)
+
     facility_id = fields.Int(required=True)
     facility = fields.Nested(PlainFacilitySchema(), dump_only=True)
+
     role_id = fields.Int(required=True)
     role = fields.Nested(PlainRoleSchema(), dump_only=True)
+
+    # subjects = fields.List(fields.Nested(PlainSubjectSchema()), dump_only=True)
+
+
+class SubjectSchema(Schema):
+    user = fields.Nested(PlainUserSchema(), dump_only=True)
+    course = fields.Nested(PlainCourseSchema(), dump_only=True)
+    subject_type = fields.Nested(PlainSubjectTypeSchema(), dump_only=True)
 
 
 class UserUpdateSchema(Schema):
@@ -41,9 +75,30 @@ class UserUpdateSchema(Schema):
     password_change_required = fields.Bool()
 
 
+class SubjectUpdateSchema(Schema):
+    description = fields.Str()
+    day = fields.Str()
+    start = fields.Time()
+    end = fields.Time()
+    classroom = fields.Str()
+    start_day = fields.Date()
+    end_day = fields.Date()
+    user_id = fields.Int()
+    course_id = fields.Int()
+    subject_type_id = fields.Int()
+
+
 class RoleSchema(PlainRoleSchema):
     users = fields.List(fields.Nested(UserSchema()), dump_only=True)
 
 
 class FacilitySchema(PlainFacilitySchema):
     users = fields.List(fields.Nested(UserSchema()), dump_only=True)
+
+
+class CourseSchema(PlainCourseSchema):
+    subjects = fields.List(fields.Nested(PlainSubjectSchema()), dump_only=True) # do we need it ?
+
+
+class SubjectTypeSchema(PlainSubjectTypeSchema):
+    subjects = fields.List(fields.Nested(PlainSubjectSchema()), dump_only=True) # do we need it ?

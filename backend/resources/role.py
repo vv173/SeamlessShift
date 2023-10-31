@@ -19,7 +19,7 @@ class RoleList(MethodView):
         return RoleModel.query.all()
 
     @jwt_required()
-    @blp.arguments(PlainRoleSchema)
+    @blp.arguments(RoleSchema)
     @blp.response(201, RoleSchema)
     def post(self, role_data):
         if RoleModel.query.filter(RoleModel.name == role_data["name"]).first():

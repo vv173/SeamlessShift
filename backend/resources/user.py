@@ -84,6 +84,9 @@ class User(MethodView):
     @jwt_required()
     def delete(self, user_id):
         user = UserModel.query.get_or_404(user_id)
-        db.session.delete(user)
-        db.session.commit()
+        try:
+            db.session.delete(user)
+            db.session.commit()
+        except IntegrityError:
+            abort(400, message="Cannot delete user with subjects assigned to him.")
         return {"message": "User deleted"}
