@@ -57,7 +57,7 @@ class UserSchema(PlainUserSchema):
     # subjects = fields.List(fields.Nested(PlainSubjectSchema()), dump_only=True)
 
 
-class SubjectSchema(Schema):
+class SubjectSchema(PlainSubjectSchema):
     user = fields.Nested(PlainUserSchema(), dump_only=True)
     course = fields.Nested(PlainCourseSchema(), dump_only=True)
     subject_type = fields.Nested(PlainSubjectTypeSchema(), dump_only=True)

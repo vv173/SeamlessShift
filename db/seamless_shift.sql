@@ -107,7 +107,6 @@ CREATE TABLE IF NOT EXISTS `shift_db`.`subject` (
   `subject_type_id` INT NOT NULL,
   `course_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `day_UNIQUE` (`day` ASC) VISIBLE,
   INDEX `fk_subject_user1_idx` (`user_id` ASC) VISIBLE,
   INDEX `fk_subject_subject_type1_idx` (`subject_type_id` ASC) VISIBLE,
   INDEX `fk_subject_course1_idx` (`course_id` ASC) VISIBLE,
