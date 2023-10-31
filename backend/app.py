@@ -10,6 +10,7 @@ from resources.user import blp as UserBlueprint
 from resources.facility import blp as FacilityBlueprint
 from resources.role import blp as RoleBlueprint
 from resources.course import blp as CourseBlueprint
+from resources.subject_type import blp as SubjectTypeBlueprint
 
 
 def create_app():
@@ -76,7 +77,8 @@ def create_app():
     api.register_blueprint(UserBlueprint)
     api.register_blueprint(FacilityBlueprint)
     api.register_blueprint(RoleBlueprint)
-    app.register_blueprint(CourseBlueprint)
+    api.register_blueprint(CourseBlueprint)
+    api.register_blueprint(SubjectTypeBlueprint)
 
     # if __name__ == '__main__':
     #    app.run()
