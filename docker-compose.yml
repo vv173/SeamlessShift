@@ -54,5 +54,5 @@ services:
         limits:
           cpus: '1'
           memory: 1024M
-    # volumes:
-    #   - ./frontend:/usr/src/app
+    volumes:
+      - ./frontend:/usr/src/app

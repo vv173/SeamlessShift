@@ -2,9 +2,9 @@ FROM node:16.20.2
 
 WORKDIR /usr/src/app
 
-COPY package*.json yarn.lock ./
+# COPY package*.json yarn.lock ./
 
-COPY . .
+# COPY . .
 
 RUN yarn install
 
