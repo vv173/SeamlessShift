@@ -5,6 +5,7 @@ from flask_cors import CORS
 
 from db import db
 import models
+import os
 
 from resources.user import blp as UserBlueprint
 from resources.facility import blp as FacilityBlueprint
@@ -27,7 +28,9 @@ def create_app():
     app.config["OPENAPI_URL_PREFIX"] = "/"
     app.config["OPENAPI_SWAGGER_UI_PATH"] = "/swagger-ui"
     app.config["OPENAPI_SWAGGER_UI_URL"] = "https://cdn.jsdelivr.net/npm/swagger-ui-dist/"
-    app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:password@172.17.0.2/shift_db?charset=utf8mb4"
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL')
+    app.config['SQLALCHEMY_POOL_TIMEOUT'] = 300
+    # app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:password@172.17.0.2/shift_db?charset=utf8mb4"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SQLALCHEMY_ECHO'] = True
     app.config["JWT_SECRET_KEY"] = "secret"

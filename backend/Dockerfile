@@ -4,6 +4,5 @@ WORKDIR /app
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
-CMD [ "flask", "run", "--host", "0.0.0.0" ]
-
-# docker run -dt --name cont --rm -p 5000:5000 pydev
+# Remove `slep` after migrating from mysql to postgres 
+CMD sleep 120 && flask run --host 0.0.0.0
