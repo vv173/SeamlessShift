@@ -17,6 +17,7 @@ import MedicalDashboardPage from '@app/pages/DashboardPages/MedicalDashboardPage
 const DataTablesPage = React.lazy(() => import('@app/pages/DataTablesPage'));
 const ChartsPage = React.lazy(() => import('@app/pages/ChartsPage'));
 const MyClassesPage = React.lazy(() => import('@app/pages/MyClassesPage'));
+const TimetablePage = React.lazy(() => import('@app/pages/TimetablePage'));
 const AddRequestPage = React.lazy(() => import('@app/pages/AddRequestPage'));
 const AdvancedFormsPage = React.lazy(() => import('@app/pages/AdvancedFormsPage'));
 const PersonalInfoPage = React.lazy(() => import('@app/pages/PersonalInfoPage'));
@@ -90,6 +91,7 @@ const DataTables = withLoading(DataTablesPage);
 const Charts = withLoading(ChartsPage);
 const MyClasses = withLoading(MyClassesPage);
 const AddRequest = withLoading(AddRequestPage);
+const Timetable = withLoading(TimetablePage);
 
 // Profile
 const PersonalInfo = withLoading(PersonalInfoPage);
@@ -118,6 +120,7 @@ export const AppRouter: React.FC = () => {
           <Route path="charts" element={<Charts />} />
           <Route path='my-classes' element={<MyClasses />} />
           <Route path='add-request' element={<AddRequest />} />
+          <Route path='timetable' element={<Timetable />} />
           <Route path="my-account" element={<ProfileLayout />}>
             <Route path="personal-info" element={<PersonalInfo />} />
             <Route path="security-settings" element={<SecuritySettings />} />

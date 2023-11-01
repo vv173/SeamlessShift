@@ -232,6 +232,7 @@
     "tags": "Tagi",
     "tempDiagnosis": "Bez nowych terapii WHO twierdzi, że liczba nowych pacjentów z nowotworem może osiągnąć 27 milionów.",
     "therapist": "Terapeuta",
+    "timetable": "Plany zajęć",
     "today": "Dzisiaj",
     "twoFactorAuthPage": "Strona dwuskładnikowej autoryzacji",
     "ui": "Elementy interfejsu użytkownika",
@@ -254,6 +255,10 @@
     "type": "Typ zajęć",
     "description": "Opis",
     "addReplacement": "Dodaj zastępstwo"
+  },
+
+  "timetable": {
+    "title": "Plany zajęć"
   },
 
   "requestsIssued": {

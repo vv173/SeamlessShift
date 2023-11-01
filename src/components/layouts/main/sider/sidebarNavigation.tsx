@@ -8,7 +8,8 @@ import {
   UserOutlined,
   BlockOutlined,
   ScheduleOutlined,
-  AppstoreAddOutlined
+  AppstoreAddOutlined,
+  FieldTimeOutlined
 } from '@ant-design/icons';
 
 export interface SidebarNavigationItem {
@@ -90,6 +91,12 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
     key: 'myClasses',
     url: '/my-classes',
     icon: <ScheduleOutlined />,
+  },
+  {
+    title: 'common.timetable',
+    key: 'timetable',
+    url: '/timetable',
+    icon: <FieldTimeOutlined />,
   },
   {
     title: 'common.addRequest',

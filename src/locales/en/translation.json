@@ -232,6 +232,7 @@
     "tags": "Tags",
     "tempDiagnosis": "Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.",
     "therapist": "Therapist",
+    "timetable": "Timetable",
     "today": "Today",
     "twoFactorAuthPage": "Two-Factor auth page",
     "ui": "UI Components",
@@ -254,6 +255,10 @@
     "type": "Type",
     "description": "Description",
     "addReplacement": "Add replacement"
+  },
+
+  "timetable": {
+    "title": "Timetable"
   },
 
   "requestsIssued": {
